@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS photohut_db;
+
+CREATE DATABASE photohut_db;
