@@ -1,0 +1,18 @@
+<ol class="photos-list">
+  {{#each photos as |photo|}}
+  <li>
+    <article class="photo">
+      <div class="title">
+        <a href="{{photo.photo_url}}" target="_blank">{{photo.title}}</a>
+        <span>({{photo.photo_url}})</span>
+      </div>
+      <div class="meta">
+        {{photo.vote_count}} point(s) by {{photo.user.username}} on
+        {{photo.created_at}}
+        |
+        <a href="/post/{{photo.id}}">{{photo.comments.length}} comment(s)</a>
+      </div>
+    </article>
+  </li>
+  {{/each}}
+</ol>
