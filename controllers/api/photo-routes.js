@@ -77,13 +77,13 @@ router.get('/:id', (req, res) => {
 });
 //creates a photo
 
-//tpn withAuth needs to be reenabled
-router.post('/', (req, res) => {
+
+router.post('/', withAuth, (req, res) => {
   Photo.create({
     title: req.body.title,
     photo_url: req.body.photo_url,
-    user_id: req.body.user_id
-   //disbled for testing user_id: req.session.user_id
+    // used for testing user_id: req.body.user_id
+    user_id: req.session.user_id
   })
     .then(dbPhotoData => res.json(dbPhotoData))
     .catch(err => {
@@ -92,8 +92,8 @@ router.post('/', (req, res) => {
     });
 });
 //sets upvote to a photo
-//withAuth
-router.put('/upvote', (req, res) => {
+
+router.put('/upvote', withAuth, (req, res) => {
     //req.session.user_id needs to replace req.body
   Photo.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
     .then(updatedVoteData => res.json(updatedVoteData))
@@ -103,8 +103,8 @@ router.put('/upvote', (req, res) => {
     });
 });
 //updates a photo
-//withAuth
-router.put('/:id', (req, res) => {
+
+router.put('/:id', withAuth, (req, res) => {
   Photo.update(
     {
       title: req.body.title,

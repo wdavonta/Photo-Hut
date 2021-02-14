@@ -10,13 +10,13 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-//withAuth
-router.post('/', (req, res) => {
+
+router.post('/', withAuth, (req, res) => {
   // expects => {comment_text: "This is the comment", user_id: 1, photo_id: 2}
   Comment.create({
     comment_text: req.body.comment_text,
-    //user_id: req.session.user_id,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
+    // used for testing user_id: req.body.user_id,
     photo_id: req.body.photo_id
   })
     .then(dbCommentData => res.json(dbCommentData))
@@ -25,8 +25,8 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
-//withAuth
-router.delete('/:id', (req, res) => {
+
+router.delete('/:id', withAuth, (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id

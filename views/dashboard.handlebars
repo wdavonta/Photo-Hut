@@ -1,0 +1,33 @@
+<section>
+  <h2>Create New Photo</h2>
+
+  <form class="new-photo-form">
+    <div>
+      <label for="photo-title">Title</label>
+      <input type="text" id="photo-title" name="photo-title" />
+    </div>
+    <div>
+      <label for="photo-url">photo</label>
+      <input id="photo-body" name="photo-body" cols="50" rows="10"></input>
+    </div>
+    <button type="submit" class="btn bg-brown text-secondary">Create</button>
+  </form>
+</section>
+
+{{#if photos.length}}
+<section>
+  <h2>Your Photos</h2>
+  <ol>
+    {{#each photos as |photo|}}
+    <li class="no-bullet">
+      {{> photo-info photo}}
+      <div></div>
+      <a class="text-secondary" href="/dashboard/edit/{{photo.id}}" class="edit-link">Edit photo</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+
+<script src="/javascript/add-photo.js"></script>
