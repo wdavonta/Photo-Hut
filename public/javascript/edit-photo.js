@@ -3,7 +3,7 @@ async function editFormHandler(event) {
     event.preventDefault();
   
     const title = document.querySelector('input[name="photo-title"]').value.trim();
-    const body = document.querySelector('input[name="photo-url"]').value.trim();
+    const photo_url = document.querySelector('input[name="photo-url"]').value.trim();
     const id = window.location.toString().split('/')[
       window.location.toString().split('/').length - 1
     ];
@@ -11,7 +11,7 @@ async function editFormHandler(event) {
       method: 'PUT',
       body: JSON.stringify({
         title,
-        body
+        photo_url
       }),
       headers: {
         'Content-Type': 'application/json'
