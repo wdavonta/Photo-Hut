@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 require('dotenv').config();
 
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || process.env.D_PORT;
