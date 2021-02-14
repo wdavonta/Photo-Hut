@@ -92,7 +92,9 @@ router.post('/', (req, res) => {
     });
 });
 //sets upvote to a photo
-router.put('/upvote', withAuth, (req, res) => {
+//withAuth
+router.put('/upvote', (req, res) => {
+    //req.session.user_id needs to replace req.body
   Photo.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
     .then(updatedVoteData => res.json(updatedVoteData))
     .catch(err => {
@@ -101,7 +103,8 @@ router.put('/upvote', withAuth, (req, res) => {
     });
 });
 //updates a photo
-router.put('/:id', withAuth, (req, res) => {
+//withAuth
+router.put('/:id', (req, res) => {
   Photo.update(
     {
       title: req.body.title,

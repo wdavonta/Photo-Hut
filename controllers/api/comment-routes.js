@@ -25,8 +25,8 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
     });
 });
-
-router.delete('/:id', withAuth, (req, res) => {
+//withAuth
+router.delete('/:id', (req, res) => {
   Comment.destroy({
     where: {
       id: req.params.id
