@@ -12,6 +12,7 @@
   <div class="wrapper">
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">PhotoHut</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +38,12 @@
                     </form>
                 </div>
             </div>
+             {{#if loggedIn}}
+                       <a href="/dashboard">dashboard</a>
+                       <button id="logout" class="btn-no-style">logout</button>
+                      {{else}}
+                       <a href="/login">login</a>
+                      {{/if}}
         </nav>
     </header>
     <main>
