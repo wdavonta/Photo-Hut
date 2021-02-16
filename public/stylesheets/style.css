@@ -41,6 +41,20 @@
   button:hover {
     background-color: #3486eb;
   }
+
+  nav .navbar-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  nav .navbar-header .navbar-toggle {
+    background: none;
+    color: black;
+  }
+
+  nav .navbar-header .navbar-toggle:hover {
+    color: grey;
+  }
   
   .post-list {
     margin: 0;
@@ -213,3 +227,25 @@
   .wrap {
     overflow-wrap: break-word;
   }
+
+  /* START HOMEPAGE */
+  #search {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+  }
+  hr {
+    height: 1px;
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+  }
+  #search #searchBtn {
+    margin-right: 60%;
+    position: absolute;
+    padding-top: 8px;
+    background: none;
+    font-size: 1.2em;
+    color: black;
+  }
+  /* END HOMEPAGE */

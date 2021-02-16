@@ -1,8 +1,18 @@
-  
-<ol class="photo-list">
-  {{#each photos as |photo|}}
-  <li>
-    {{> photo-info photo }}
-  </li>
-  {{/each}}
-</ol>
+
+ <div id="search">
+    <button id="searchBtn">
+      <i class="fas fa-search"></i>
+    </button>
+    <h2>Featured</h2>
+ </div>
+ <hr>
+ <div id="featured-section">
+  <ol class="photo-list">
+    {{#each photos as |photo|}}
+      <li>
+        {{> photo-info photo }}
+      </li>
+    {{/each}}
+  </ol>
+ </div>
+
