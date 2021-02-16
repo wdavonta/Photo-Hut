@@ -34,10 +34,12 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(dbPhotoData => {
         const photos = dbPhotoData.map(photo => photo.get({ plain: true }));
+        const username = photos[1].user.username;
         
         res.render('profile', {
             photos,
-            loggedIn: true
+            loggedIn: true,
+            username
         });
     })
     .catch(err => {

@@ -1,7 +1,26 @@
-<ol class="photos-list">
-  {{#each photos as |photo|}}
-  <li>
-    {{> photo-info photo }}
-  </li>
-  {{/each}}
-</ol>
+<div class="container profile-header mt-5">
+    <div class="row mb-5">
+        <div class="col-4">
+            <img class="rounded-circle profile-pic" src="https://via.placeholder.com/150" alt="prof pic">
+        </div>
+        <div class="col-8 profile-border">
+            <h1>{{username}}</h1>
+            <h3>3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit, repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!</p>
+        </div>
+    </div>
+    <div class="card-columns m-2">
+        {{#each photos as |photo|}}
+        <div class="card photo-card">
+            <div class="embed-responsive image-container">
+                <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img">
+            </div>
+            
+            <div class="card-reveal">
+                <span class="material-icons edit-icon">create</span>
+                <div class="card-title">{{photo.title}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

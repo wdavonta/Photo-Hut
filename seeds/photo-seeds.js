@@ -4,22 +4,22 @@ const photodata = [
     {
         title: 'Donec posuere metus vitae ipsum.',
         photo_url: 'https://picsum.photos/200/300',
-        user_id: 10
+        user_id: 7
     },
     {
         title: 'Morbi non quam nec dui luctus rutrum.',
         photo_url: 'https://picsum.photos/200/400',
-        user_id: 8
+        user_id: 7
     },
     {
         title: 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.',
         photo_url: 'https://picsum.photos/400/200',
-        user_id: 1
+        user_id: 7
     },
     {
         title: 'Nunc purus.',
         photo_url: 'https://picsum.photos/800',
-        user_id: 4
+        user_id: 7
     },
     {
         title: 'Pellentesque eget nunc.',
@@ -29,32 +29,32 @@ const photodata = [
     {
         title: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
         photo_url: 'https://picsum.photos/200/1000',
-        user_id: 4
+        user_id: 7
     },
     {
         title: 'In hac habitasse platea dictumst.',
         photo_url: 'https://picsum.photos/700/500',
-        user_id: 1
+        user_id: 7
     },
     {
         title: 'Morbi non quam nec dui luctus rutrum.',
         photo_url: 'https://picsum.photos/800/900',
-        user_id: 1
+        user_id: 7
     },
     {
         title: 'Duis ac nibh.',
         photo_url: 'https://picsum.photos/100/70',
-        user_id: 9
+        user_id: 7
     },
     {
         title: 'Curabitur at ipsum ac tellus semper interdum.',
         photo_url: 'https://picsum.photos/500/300',
-        user_id: 5
+        user_id: 7
     },
     {
         title: 'In hac habitasse platea dictumst.',
         photo_url: 'https://picsum.photos/600',
-        user_id: 3
+        user_id: 7
     },
     {
         title: 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.',
