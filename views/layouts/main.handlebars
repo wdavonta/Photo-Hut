@@ -9,48 +9,50 @@
 </head>
 
 <body>
-  <div class="wrapper">
-    <nav class="navbar navbar-inverse navbar-fixed-top navbar-light bg-light">
+    <div class="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-light bg-light">
             <div class="container">
                 <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">PhotoHut</a>
-                </div>  
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">PhotoHut</a>
+                </div> 
+                {{#if loggedIn}}
+                    <a href="/dashboard">Community Gallery</a>
+                    <button type="submit" class="btn btn-success" id="logout">Sign Out</button>
+                {{else}}
+                    <a href="/login">Sign In</a>
+                {{/if}} 
                 <div id="navbar" class="navbar-collapse collapse">
-                  <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                      <input type="text" placeholder="E-mail" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    {{#if loggedIn}}
-                      <a href="/dashboard">Community Gallery</a>
-                      <button type="submit" class="btn btn-success">Sign Out</button>
-                      {{else}}
-                      <a href="/login">Sign In</a>
-                      {{/if}}
-                  </form>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" placeholder="E-mail" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Password" class="form-control">
+                        </div>
+                        
+                    </form>
                 </div>
             </div>    
-      </nav>
+        </nav>
     </div>
     <main>
-      {{{ body }}}
+        {{{ body }}}
     </main>
     <footer>
-      For the Professional
+        For the Professional
     </footer>
-  </div>
     {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
-  <script src="js/bootstrap.min.js"></script>
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>

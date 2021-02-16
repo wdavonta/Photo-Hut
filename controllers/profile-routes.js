@@ -1,10 +1,15 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Photo, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
-    console.log('======================');
+router.get('/', withAuth, (req, res) => {
+    console.log(req.session);
+    console.log('==========PROFILE============');
     Photo.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'photo_url',
@@ -32,7 +37,7 @@ router.get('/', (req, res) => {
         
         res.render('profile', {
             photos,
-            loggedIn: req.session.loggedIn
+            loggedIn: true
         });
     })
     .catch(err => {
