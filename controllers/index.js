@@ -5,10 +5,12 @@ const apiRoutes = require('./api/');
 const homeRoutes = require('./home-routes.js');
 const dashboardRoutes = require('./dashboard-routes.js');
 const profileRoutes = require('./profile-routes.js');
+const postRoutes = require('./post-routes.js')
 
 router.use('/', homeRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/profile', profileRoutes);
 router.use('/api', apiRoutes);
+router.use('/post', postRoutes);
 
 module.exports = router;
