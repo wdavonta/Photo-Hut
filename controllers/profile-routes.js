@@ -35,8 +35,10 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPhotoData => {
         const photos = dbPhotoData.map(photo => photo.get({ plain: true }));
         const username = photos[1].user.username;
+        const bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!';
         
         res.render('profile', {
+            bio,
             photos,
             loggedIn: true,
             username

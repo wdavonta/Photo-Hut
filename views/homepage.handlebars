@@ -18,15 +18,22 @@
   <hr>
 <!--  featured section -->
  <div id="featured-section">
-  <ol class="photo-list">
-    {{#each photos as |photo|}}
-      <li>
-        {{> photo-info photo }}
-      </li>
-    {{/each}}
-  </ol>
+    <div class="card-columns m-2">
+        {{#each photos as |photo|}}
+        <div id="{{photo.id}}" class="card photo-card">
+            <div class="embed-responsive image-container">
+                <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img">
+            </div>
+            
+            <div class="card-reveal">
+                <div class="card-title">{{photo.title}}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
  </div>
 
 <!-- js link -->
  <script src="/javascript/search.js"></script>
+<script src="/javascript/open-post.js"></script>
 
