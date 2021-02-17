@@ -27,21 +27,21 @@
             </a>
           </div>
           <!--nav collapse -->
-          <div class="navbar-collapse collapse" id="collapse-1">
+          <div id="collapse" class="navbar-collapse collapse">
             <!--nav left-->
             <ul class="nav navbar-nav">
               <!--session-->
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  <span class="fa fa-tags"></span><span class="link">Login/Sign Up</span> <span class="fa fa-caret-down"></span>  
+                  <span class="fas fa-portrait"></span><span class="link">Login/Sign Up</span> <span class="fa fa-caret-down"></span>  
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><span class="fa fa-tag"></span>Login</a></li>
-                  <li><a href="#"><span class="fa fa-tag"></span>Sign Up</a></li>
+                  <li><a href="/login"><span class="far fa-user-circle"></span>Login</a></li>
+                  <li><a href="/login"><span class="fas fa-pen"></span>Sign Up</a></li>
                 </ul>
               </li>
               <!--gallery/dashboard-->
-              <li><a href="#"><span class="fa fa-info-circle"></span><span class="link">Community Gallery</span></a></li>
+              <li><a href="/dashboard"><span class="fas fa-camera-retro"></span><span class="link">Community Gallery</span></a></li>
             </ul>
             <!--nav right-->  
             <form class="navbar-form navbar-right">
@@ -73,6 +73,7 @@
   {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
   {{/if}}
+  <script src="/javascript/navbar.js"></script>
 </body>
 
 </html>
