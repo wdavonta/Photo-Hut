@@ -4,9 +4,9 @@
             <img class="rounded-circle profile-pic" src="https://via.placeholder.com/150" alt="prof pic">
         </div>
         <div class="col-lg-8 profile-border">
-            <h1 class="profile-header">{{username}}</h1>
+            <input type="text" class="form-control display-name p-0" value="{{username}}">
             <h3 class="mb-4">some statistic</h3>
-            <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit<span id="dots">...</span><span id="more"> repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui! </span><a href="#" id="readmore-link">Read More</a></p>
+            <input class="bio">{{{format_bio bio}}}</input>
             
         </div>
     </div>
@@ -25,4 +25,4 @@
         {{/each}}
     </div>
 </div>
-<script src="/javascript/readMore.js"></script>
+<script src="/javascript/profile.js"></script>

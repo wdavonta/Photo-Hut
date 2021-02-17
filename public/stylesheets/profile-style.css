@@ -1,12 +1,20 @@
 
 
-.profile h1 {
-    font-size: 50px;
+.display-name {
+    font-size: 50px !important;
+    border: none !important;
+    color: black;
 }
 
 .profile h3 {
     font-size: 20px;
     color: grey;
+}
+
+.profile input:focus {
+    border-color: rgba(126, 239, 104, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+    outline: 0 none;
 }
 
 .profile-pic {
@@ -119,7 +127,7 @@
 }
 
 @media screen and (max-width: 992px) {
-    .profile h1 {
+    .display-name {
         font-size: 6vw !important;
     }
 
@@ -157,8 +165,8 @@
 }
 
 @media screen and (max-width: 576px) {
-    .profile h1 {
-        font-size: 40px;
+    .display-name {
+        font-size: 40px !important;;
     }
 
     .profile h3 {
