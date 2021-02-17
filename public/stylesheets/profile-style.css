@@ -1,3 +1,5 @@
+
+
 .profile h1 {
     font-size: 50px;
 }
@@ -16,6 +18,12 @@
 .profile-border {
     border-bottom: solid 3px rgb(136, 136, 136);
     height: 215px;
+}
+
+.bio {
+    height: 80px;
+    overflow: auto;
+    padding: 1px;
 }
 
 .image-container {
@@ -54,6 +62,10 @@
     -webkit-column-count: 4 !important;
     -moz-column-count: 4 !important;
     column-count: 4 !important;
+}
+
+#more {
+    display: none;
 }
 
 /*.photo-card {
