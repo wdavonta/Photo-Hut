@@ -1,19 +1,18 @@
 //middleware(control) file to help interactions for deleting photo between server(model) and front end(view)
 async function deleteFormHandler(event) {
     event.preventDefault();
-  
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
+    const id = event.target.getAttribute("photo_id");
+
     const response = await fetch(`/api/photos/${id}`, {
-      method: 'DELETE'
+        method: 'DELETE'
     });
-  
+
     if (response.ok) {
-      document.location.replace('/dashboard/');
+        document.location.reload();
     } else {
-      alert(response.statusText);
+        alert(response.statusText);
     }
-  }
-  
-  document.querySelector('.delete-photo-btn').addEventListener('click', deleteFormHandler);
+}
+
+const deleteBtnsEl = document.querySelectorAll('.delete-photo');
+for (btn of deleteBtnsEl) {btn.addEventListener('click', deleteFormHandler)};

@@ -42,9 +42,9 @@
             </div>
             
             <div class="edit-only photo-details">
-                <button class="btn" id="edit-photo"><i class="fas fa-pen"></i></button>
-                <button class="btn" id="delete-photo"><i class="fas fa-trash-alt"></i></button>
-                <div id="photo-title" class="card-title">{{photo.title}}</div>
+                <button class="btn edit-photo"><i class="fas fa-pen"></i></button>
+                <button photo_id="{{photo.id}}" class="btn delete-photo"><i photo_id="{{photo.id}}" class="fas fa-trash-alt"></i></button>
+                <div class="photo-title card-title">{{photo.title}}</div>
             </div>
         </div>
         {{/each}}
@@ -92,7 +92,7 @@
 
 <script src="/javascript/profile.js"></script>
 <script src="/javascript/add-photo.js"></script>
-
+<script src="/javascript/delete-photo.js"></script>
 <!-- when edit-icon-photo is selected, focus shadow around selected photo and delete icon appears in top right corner, sets up for future functionality of editing image title and tags-->
 <!-- two icons in bottom right corner of profile header, 1 to add new phtoo which opens a modal for inputting path to photo, and one for editing profile info, turns all prof fields into input fields, add selectable plus sign over prof pic which generates same modal as add photo button but links to prof pic db 
 ADD TOOLTIPS FROM BOOTSTRAP TO PROF-ICONS-->
