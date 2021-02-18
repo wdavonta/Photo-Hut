@@ -1,7 +1,7 @@
 
 :root {
     --pistachio: #dcfad6;
-    --cocobrown: #1d1108;
+    /* --cocobrown: #1d1108; */
     --pistachioshadow: #acc2a8;
   }
   * {
@@ -164,6 +164,7 @@
   
   .comment-form {
     margin-bottom: 5%;
+    
   }
   
   .comment {
@@ -172,7 +173,7 @@
   }
   
   .comment:nth-child(odd) {
-    background-color: #fff5eb;
+    background-color: #99b1fd;
   }
   
   .comment .meta {
