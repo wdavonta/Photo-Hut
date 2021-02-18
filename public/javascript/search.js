@@ -1,7 +1,9 @@
 var userSearchEl = $("#user-search");
 
-// Array for users suggestions
+// Array for users
 var users = [];
+// array for username suggestions
+var usernames = []; 
 
 
 // fetch list of users to add to suggestion (CALLS SUGGEST user)
@@ -24,21 +26,22 @@ var submitHandler = function(event) {
     event.preventDefault();
 
     // check if user entered exists
-    if(!userSearchEl.val() || !users.includes(userSearchEl.val())) {
+    if(!userSearchEl.val() || !usernames.includes(userSearchEl.val())) {
         $(userSearchEl)
             .val("")
             .attr("placeholder", "User not found, try another search");
-        return;
     } else {
-        console.log('user exsits');
+        var searchId = users.find(element => element.username === userSearchEl.val()).id
+        // send to user profile
+        document.location.replace(`/profile/${searchId}`);
     }
 }
 
 // push data from api/db to users array for suggestion
 var suggestUser = function(data) {
-    console.log(data);
     data.forEach(element => {
-        users.push(element.username);
+        users.push({username: element.username, id: element.id});
+        usernames.push(element.username);
     });
 }
 
@@ -54,13 +57,13 @@ function toggleSearch() {
 
 // auto complete users search
 userSearchEl.autocomplete({ 
-    source: users,
+    source: usernames,
     appendTo: "#suggestions-wrapper",
     autoFocus: true
 });
 
 // submit listener
-$("#search-form").on("submit", submitHandler);
+$("#searchForm").on("submit", submitHandler);
 // Search btn clicked
 $("#searchBtn").on("click", toggleSearch);
 userSearchEl.on("focusout", toggleSearch);
