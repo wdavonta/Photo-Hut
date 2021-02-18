@@ -1,0 +1,53 @@
+<link href="/stylesheets/navbar.css" rel="stylesheet"/>
+<nav class="navbar navbar-expand-sm fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <span class="fa fa-home"></span>
+                <!--<img src="/images/photohut.png"/>-->
+                <span class="link">PhotoHut</span>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>  
+        <!--nav collapse-->
+        <div class="collapse navbar-collapse" id="#collapse-1">
+            <!--nav left-->
+            <ul class="nav navbar-nav">
+                <!--session<li class="dropdown">-->
+                
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="fas fa-portrait"></span><span class="link">Login/Sign Up</span>
+                </a>
+                {{#if loggedIn}}
+                <ul class="dropdown-menu">
+                    <li id="logout"><a href="/"><span class="far fa-user-circle"></span> Log Out</a></li>
+                </ul>  
+                {{else}}
+                <ul class="dropdown-menu">
+                    <li><a href="/login"><span class="far fa-user-circle"></span> Login</a></li>
+                    <li><a href="/login"><span class="fas fa-pen"></span> Sign Up</a></li>
+                </ul>
+                {{/if}}
+                <!--gallery/dashboard-->
+                {{#if loggedIn}}
+                <li><a href="/profile"><span class="fas fa-camera-retro"></span><span class="link">My Profile</span></a></li>
+                {{/if}}
+            </ul>
+            <!--nav right-->  
+            <form class="navbar-form form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+                </div>
+            </form>
+        </div>
+    </div>    
+</nav>
+<script src="/javascript/navbar.js"></script>
+{{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+{{/if}}
