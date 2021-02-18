@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
     });
 });
 //displays a single photo
-router.get('/photo/:id', withAuth, (req, res) => {
+router.get('/photo/:id', (req, res) => {
   Photo.findOne({
     where: {
       id: req.params.id

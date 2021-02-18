@@ -28,10 +28,10 @@ async function updateDB() {
 }
 
 const toggleEditMode = () => {
-    const profileHTML = document.querySelector('.profile');
     const editMode = editBtn.getAttribute('editMode');
     //get currently linked stylesheet
     const ss = document.getElementById("ss");
+    console.log(ss);
     if (editMode) {
         // if editmode is currently true then 
         // all info should be posted to db which will trigger the page to reload and editmode will be automatically exited
@@ -44,7 +44,7 @@ const toggleEditMode = () => {
     }
 }
 
-editBtn.addEventListener('click', toggleEditMode)
+editBtn.addEventListener('click', toggleEditMode);
 
 // originally from edit-photo.js
 /*//middleware(control) file to help interactions for editing photo between server(model) and front end(view)
@@ -74,4 +74,4 @@ async function editFormHandler(event) {
     }
   }
   
-  document.querySelector('.edit-photo-form').addEventListener('submit', editFormHandler);*/
+document.querySelector('.edit-photo-form').addEventListener('submit', editFormHandler);*/
