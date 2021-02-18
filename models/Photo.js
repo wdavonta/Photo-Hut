@@ -56,6 +56,10 @@ Photo.init(
         model: 'user',
         key: 'id'
       }
+    },
+    imgur_id: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   },
   {

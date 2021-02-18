@@ -82,6 +82,7 @@ router.post('/', withAuth, (req, res) => {
   Photo.create({
     title: req.body.title,
     photo_url: req.body.photo_url,
+    imgur_id: req.body.imgur_id,
     // used for testing user_id: req.body.user_id
     user_id: req.session.user_id
   })
