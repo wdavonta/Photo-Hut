@@ -164,6 +164,7 @@
   
   .comment-form {
     margin-bottom: 5%;
+    
   }
   
   .comment {
@@ -172,7 +173,7 @@
   }
   
   .comment:nth-child(odd) {
-    background-color: #fff5eb;
+    background-color: #99b1fd;
   }
   
   .comment .meta {
