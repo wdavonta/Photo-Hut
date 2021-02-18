@@ -1,7 +1,14 @@
 //format dates and handle plural/single grammar 
 module.exports = {
     format_date: date => {
-        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
+        const monthNames = ["Jan", "Feb", "Mar", "April", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+      
+        const d = new Date(date);
+        const month = monthNames[d.getMonth()];
+
+        return `${month} ${new Date(date).getDate()}, ${new Date(
             date
         ).getFullYear()}`;
     },

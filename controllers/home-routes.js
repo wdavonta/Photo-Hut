@@ -52,6 +52,7 @@ router.get('/photo/:id', withAuth, (req, res) => {
       'id',
       'photo_url',
       'title',
+      'user_id',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE photo.id = vote.photo_id)'), 'vote_count']
     ],
