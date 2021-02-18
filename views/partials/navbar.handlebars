@@ -1,53 +1,46 @@
-<link href="/stylesheets/navbar.css" rel="stylesheet"/>
-<nav class="navbar navbar-expand-sm fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                <span class="fa fa-home"></span>
-                <!--<img src="/images/photohut.png"/>-->
-                <span class="link">PhotoHut</span>
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>  
-        <!--nav collapse-->
-        <div class="collapse navbar-collapse" id="#collapse-1">
-            <!--nav left-->
-            <ul class="nav navbar-nav">
-                <!--session<li class="dropdown">-->
-                
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="fas fa-portrait"></span><span class="link">Login/Sign Up</span>
-                </a>
-                {{#if loggedIn}}
-                <ul class="dropdown-menu">
-                    <li id="logout"><a href="/"><span class="far fa-user-circle"></span> Log Out</a></li>
-                </ul>  
-                {{else}}
-                <ul class="dropdown-menu">
-                    <li><a href="/login"><span class="far fa-user-circle"></span> Login</a></li>
-                    <li><a href="/login"><span class="fas fa-pen"></span> Sign Up</a></li>
-                </ul>
-                {{/if}}
-                <!--gallery/dashboard-->
-                {{#if loggedIn}}
-                <li><a href="/profile"><span class="fas fa-camera-retro"></span><span class="link">My Profile</span></a></li>
-                {{/if}}
-            </ul>
-            <!--nav right-->  
-            <form class="navbar-form form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <button type="submit" class="btn"><span class="fa fa-search"></span></button>
+<link id="ss" rel="stylesheet" href="/stylesheets/navbar.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="/images/photohut.png"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {{#if loggedIn}}
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Sign Out</a>
+            </li>
+            {{else}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="email-login">Email address</label>
+                            <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="password-login">Password</label>
+                            <input type="password" class="form-control" id="password-login">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
                 </div>
-            </form>
-        </div>
-    </div>    
+            </li>
+            {{/if}}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
 </nav>
-<script src="/javascript/navbar.js"></script>
 {{#if loggedIn}}
-    <script src="/javascript/logout.js"></script>
+<script src="/javascript/logout.js"></script>
+{{else}}
+<script src="/javascript/login.js"></script>
 {{/if}}

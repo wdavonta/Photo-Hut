@@ -1,11 +1,17 @@
-/* Navbar Styles */
+/*Navbar Styles */
 .navbar {
     border: 0;
     border-radius: 0;
     /*Adrian--Change color gradient to team decision?*/
     background: linear-gradient(to right, #ff5858, #f857a6);
 }
+.navbar .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
 
+
+/* 
 .navbar .nav li > a, .navbar .navbar-brand {
     max-height: 50px;
     width: auto;
@@ -111,7 +117,7 @@
 }
 
 /*small media query for navbar*/
-@media (max-width: 769px) {
+/*@media (max-width: 769px) {
     .navbar .link {
     padding-left: 10px;
     visibility: visible;
@@ -143,4 +149,4 @@
     width: 50%;
     float: left;
     }
-}
+} */
