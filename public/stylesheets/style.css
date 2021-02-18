@@ -153,27 +153,65 @@
     margin: -1.5% 0 2% 0;
   }
   
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
+  #singlePostSection .title {
+    max-width: 400px;
+    margin: auto;
+  }
+  .upvote-btn, .commentToggle, .sendComment {
+    background: none;
+    transition: font-size .1s;
+    color: #3486eb;
   }
   
-  .upvote-btn:hover {
-    background-color: #1f9c13;
+  .upvote-btn:hover, .commentToggle:hover, .sendComment:hover {
+    background: none;
+    font-size: 20px;
   }
-  
   .comment-form {
-    margin-bottom: 5%;
+    text-align: center;
   }
   
+  .comment-form, #commentBtn {
+    margin-bottom: 5%;
+    display: none;
+    margin: auto;
+  }
+
+  .comment-form.show, #commentBtn.show {
+    display: block;
+  }
+
+  .comments {
+    margin: 25px 100px 0 100px;
+  }
   .comment {
     padding: 1%;
     margin-bottom: 1%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    border-radius: 5px;
+  }
+
+  .comment .user-info{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment .user-info p {
+    font-size: 13px;
+  }
+
+  .comment .text {
+    margin: 0 30px 0 30px;
   }
   
   .comment:nth-child(odd) {
-    background-color: #fff5eb;
+    background-color: #aab6bb2e;
+    flex-direction: row;
   }
+
+
   
   .comment .meta {
     font-size: 90%;
@@ -196,12 +234,7 @@
     padding: 1%;
     font-size: 110%;
   }
-  .bg-pistachio {
-  background-color: var(--pistachio);
-  }
-  .bg-brown {
-  background-color: var(--cocobrown);
-  }
+
   .header {
     width: 114%;
     margin-left: -83px;

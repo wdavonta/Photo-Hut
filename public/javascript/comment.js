@@ -27,5 +27,22 @@ async function commentFormHandler(event) {
     }
   }
   
-  document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+function commentToggle() {
+  var $form = $('.comment-form');
+  var $commentBtn = $('#commentBtn');
+
+  if ($form.hasClass('show')) {
+    $form.removeClass('show');
+    $commentBtn.addClass('show');
+
+  } else {
+    $form.addClass('show');
+    $commentBtn.removeClass('show');
+  }
+}
+
+  $('.comment-form').on('submit', commentFormHandler);
+  $('.commentToggle').on('click', commentToggle);
+  
+
   
