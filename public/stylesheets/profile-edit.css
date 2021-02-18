@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(120, 120, 120);
+    background-color: rgb(167, 167, 167);
     transition: background-color .5s;
 }
 #editMode-banner {
@@ -29,12 +29,12 @@ body {
     display: inline-block;
     opacity: .6;
 }
-#prof-pic-edit {
+#upload-prof-pic {
     color: black;
     position: absolute;
     font-size: 50px;
 }
-.prof-pic:hover #prof-pic-edit, #prof-pic-edit:hover {
+.prof-pic:hover #upload-prof-pic, #upload-prof-pic:hover {
     color: whitesmoke;
     -webkit-text-stroke: 1px black;
     text-shadow: 0px 0px 10px black, 0 0 35px grey;
@@ -69,6 +69,7 @@ body {
     font-size: 20px;
     color: rgb(214, 214, 214);
     margin-bottom: 0.5rem !important;
+    font-weight: normal;
 }
 .bio {
     display: none;
