@@ -12,7 +12,7 @@
                 <a class="nav-link" href="/profile">My Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/profile">Sign Out</a>
+                <a class="nav-link" id="logout" href="/profile">Sign Out</a>
             </li>
             {{else}}
             <li class="nav-item dropdown">
@@ -27,7 +27,10 @@
                             <label for="password-login">Password</label>
                             <input type="password" class="form-control" id="password-login">
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <div class="form-inline">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <a class="nav-link" href="/login">Sign Up</a>
+                        </div>
                     </form>
                 </div>
             </li>

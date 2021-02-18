@@ -6,8 +6,10 @@
     background: linear-gradient(to right, #ff5858, #f857a6);
 }
 .navbar .dropdown-menu {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(240, 240, 240, 0.863);
     border: none;
+    width: 350px;
+    padding: 20px;
 }
 
 
