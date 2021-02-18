@@ -36,11 +36,16 @@ router.get('/', withAuth, (req, res) => {
         const photos = dbPhotoData.map(photo => photo.get({ plain: true }));
         const username = photos[1].user.username;
         const bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!';
-        
+        const profPic = "https://picsum.photos/200/400";
+        const displayName = 'Sample User'
+
+        const profile = {profPic: profPic, displayName: displayName, bio: bio}
+
         res.render('profile', {
-            bio,
+            profile,
             photos,
             loggedIn: true,
+            myProfile: true,
             username
         });
     })
@@ -51,7 +56,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // load a different users profile
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     console.log('==========USER PROFILE============');
     Photo.findAll({
         where: {
@@ -80,18 +85,23 @@ router.get('/:id', withAuth, (req, res) => {
         ]
     })
     .then(dbPhotoData => {
-        if (!dbPhotoData) {
-            res.status(404).json({ message: 'No photo found with this id' });
-            return;
+        let photos = {}
+        if (dbPhotoData) {
+            photos = dbPhotoData.map(photo => photo.get({ plain: true }));
         }
 
-        const photos = dbPhotoData.map(photo => photo.get({ plain: true }));
-        const username = photos[1].user.username;
-        
+        // temp data until profile db is running
+        const bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!';
+        const profPic = "https://picsum.photos/800/400";
+        const displayName = 'Other User'
+
+        const profile = {profPic: profPic, displayName: displayName, bio: bio}
+
         res.render('profile', {
+            profile,
             photos,
-            loggedIn: true,
-            username
+            loggedIn: req.session.loggedIn,
+            myProfile: false,
         });
     })
     .catch(err => {

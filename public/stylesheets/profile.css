@@ -1,39 +1,80 @@
-
-
-.display-name {
-    font-size: 50px !important;
-    border: none !important;
-    color: black;
+html,body, main,.profile {
+    transition: background-color .5s;
+    height: 100%;
 }
-
-.profile h3 {
-    font-size: 20px;
-    color: grey;
+.edit-only {
+    display: none;
 }
-
-.profile input:focus {
-    border-color: rgba(126, 239, 104, 0.8);
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
-    outline: 0 none;
+/* STANDARD VIEW PROFILE HEADER */
+.prof-img {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
-
-.profile-pic {
+.prof-pic {
     height: 200px;
     width: 200px;
     display: inline-block;
 }
-
-.profile-border {
+.prof-content {
     border-bottom: solid 3px rgb(136, 136, 136);
-    height: 215px;
 }
-
+#display-name {
+    font-size: 50px;
+    color: black;
+}
+#display-name-edit {
+    border: none;
+    font-size: 50px !important;
+    color: black !important;
+}
+.prof-stats {
+    font-size: 20px;
+    font-weight: normal;
+    color: grey;
+}
 .bio {
-    height: 80px;
     overflow: auto;
     padding: 1px;
 }
+#more {
+    display: none;
+}
+.prof-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.prof-icons i {
+    font-size: 20px;
+}
+.prof-icons button:focus {
+    outline: none !important;
+}
+.prof-icons button:hover {
+    color: whitesmoke;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 0px 0px 5px black, 0 0 25px grey;
+}
+/* END STANDARD PROFILE HEADER */
+.no-photos {
+    height: 75%;
+    border: solid 5px rgb(214, 214, 214);
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
 
+.no-photos p {
+
+}
+
+
+
+
+/* BEGIN PROFILE PHOTO DISPLAY 
 .image-container {
     position: relative;
     width: 100%;
@@ -60,8 +101,8 @@
     object-fit: cover;
 }
 
-.edit-icon {
-    color: white;
+.edit-photo {
+    color: white !important;
     top: 0;
     margin: 5%;
 }
@@ -70,10 +111,6 @@
     -webkit-column-count: 4 !important;
     -moz-column-count: 4 !important;
     column-count: 4 !important;
-}
-
-#more {
-    display: none;
 }
 
 /*.photo-card {
@@ -117,6 +154,7 @@
     transform: translateY(250px);
     -webkit-transform: translateY(250px);
 }*/
+/* END PROFILE PHOTO DISPLAY */
 
 @media screen and (max-width: 1200px) {
 

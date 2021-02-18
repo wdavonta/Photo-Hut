@@ -1,28 +1,100 @@
+<link id="ss" rel="stylesheet" href="/stylesheets/profile.css">
 <div class="container profile mt-5">
+    {{#if myProfile}}
+    <p id="editMode-banner" class="edit-only">·  EDIT MODE  ·  EDIT MODE  ·  EDIT MODE  ·  EDIT MODE  ·  EDIT MODE  ·</p>
+    {{/if}} 
     <div class="row mb-5">
-        <div class="col-lg-3 prof-pic-cont">
-            <img class="rounded-circle profile-pic" src="https://via.placeholder.com/150" alt="prof pic">
+        <div class="col-lg-3 prof-img">
+            <img class="rounded-circle prof-pic" src={{profile.profPic}} alt="profile picture">
+            <!--generates upload photo modal, only available if in edit mode and can only enter edit mode when logged in-->
+            {{#if myProfile}}
+            <button type="button" data-toggle="modal" data-target="#photoUpload" class="photoUpload btn edit-only" id="upload-prof-pic"><i id="upload-prof-pic-i" class="fas fa-external-link-alt"></i></button>
+            {{/if}} 
         </div>
-        <div class="col-lg-8 profile-border">
-            <input type="text" class="form-control display-name p-0" value="{{username}}">
-            <h3 class="mb-4">some statistic</h3>
-            <input class="bio">{{{format_bio bio}}}</input>
-            
+        <div class="col-lg-8 prof-content">
+            <h1 id="display-name">{{profile.displayName}}</h3>
+            {{#if myProfile}}
+            <input id="display-name-edit" type="text" class="edit-only form-control display-name p-0" value="{{profile.displayName}}">
+            {{/if}}
+            <h3 class="mb-4 prof-stats pl-4">{{photos.length}} {{format_plural "photo" photos.length}}</h3>
+            {{#if myProfile}}
+            <div class="row">
+                <div class="bio-div col-10">
+                    <p class="bio">{{{format_bio profile.bio}}}</p>
+                    <textarea placeholder="max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{profile.bio}}</textarea>
+                </div>
+                <div class="col-2 prof-icons">
+                    <button data-toggle="modal" data-target="#photoUpload" class="btn photoUpload" id="upload-photo"><i id="upload-photo-i" class="fas fa-plus"></i></button>
+                    <button class="btn" editMode='' id="edit-profile"><i class="fas fa-pen"></i></button>
+                </div>
+            </div>
+            {{else}}
+            <p class="bio">{{{format_bio profile.bio}}}</p>
+            {{/if}}
         </div>
     </div>
+    {{#if photos}}
     <div class="card-columns m-2">
         {{#each photos as |photo|}}
         <div class="card photo-card">
             <div class="embed-responsive image-container">
-                <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img">
+                <a href="/photo/{{id}}">
+                    <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img-top">
+                </a>
             </div>
             
-            <div class="card-reveal">
-                <span class="material-icons edit-icon">create</span>
-                <div class="card-title">{{photo.title}}</div>
+            <div class="edit-only photo-details">
+                <button class="btn edit-photo"><i class="fas fa-pen"></i></button>
+                <button photo_id="{{photo.id}}" class="btn delete-photo"><i photo_id="{{photo.id}}" class="fas fa-trash-alt"></i></button>
+                <div class="photo-title card-title">{{photo.title}}</div>
             </div>
         </div>
         {{/each}}
     </div>
+    {{else}}
+    <div class='no-photos'>
+        <p>This user does not have any photos on display at this monment.</p>
+    </div>
+    {{/if}}
 </div>
+<!-- Add Photo modal -->
+<div class="modal fade" id="photoUpload" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="photo-upload-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form ml-5 mr-5">
+                    <div class="form-group">
+                        <label for="inputTitle">Title</label>
+                        <input type="text" class="form-control" id="modal-photo-title" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTitle">Photo Url</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-link"></i></div>
+                            </div>
+                            <input type="url" class="form-control" id="modal-photo-url" placeholder="https://[YOUR-PHOTO-URL]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="photo-submit-btn btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="/javascript/profile.js"></script>
+<script src="/javascript/add-photo.js"></script>
+<script src="/javascript/delete-photo.js"></script>
+<!-- when edit-icon-photo is selected, focus shadow around selected photo and delete icon appears in top right corner, sets up for future functionality of editing image title and tags-->
+<!-- two icons in bottom right corner of profile header, 1 to add new phtoo which opens a modal for inputting path to photo, and one for editing profile info, turns all prof fields into input fields, add selectable plus sign over prof pic which generates same modal as add photo button but links to prof pic db 
+ADD TOOLTIPS FROM BOOTSTRAP TO PROF-ICONS-->
