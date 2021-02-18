@@ -56,7 +56,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // load a different users profile
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', (req, res) => {
     console.log('==========USER PROFILE============');
     Photo.findAll({
         where: {
