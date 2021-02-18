@@ -36,11 +36,16 @@ router.get('/', withAuth, (req, res) => {
         const photos = dbPhotoData.map(photo => photo.get({ plain: true }));
         const username = photos[1].user.username;
         const bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!';
-        
+        const profPic = "https://picsum.photos/200/400";
+        const displayName = 'Sample User'
+
+        const profile = {profPic: profPic, displayName: displayName, bio: bio}
+
         res.render('profile', {
-            bio,
+            profile,
             photos,
             loggedIn: true,
+            myProfile: true,
             username
         });
     })
@@ -91,6 +96,7 @@ router.get('/:id', withAuth, (req, res) => {
         res.render('profile', {
             photos,
             loggedIn: true,
+            myProfile: false,
             username
         });
     })
