@@ -133,6 +133,26 @@ router.put('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+//updates the user information
+router.put('/update', (req, res) => {
+  User.update(req.body, {
+    individualHooks: true,
+    where: {
+      id: req.session.user
+    }
+  })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 //deletes a user
 router.delete('/:id', (req, res) => {
   User.destroy({
@@ -152,5 +172,7 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 
 module.exports = router;

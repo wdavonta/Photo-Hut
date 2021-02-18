@@ -58,6 +58,7 @@ Photo.init(
       }
     }
   },
+  
   {
     sequelize,
     freezeTableName: true,

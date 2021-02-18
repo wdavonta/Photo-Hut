@@ -101,32 +101,6 @@ router.put('/upvote', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-//updates a photo
-
-router.put('/:id', withAuth, (req, res) => {
-  Photo.update(
-    {
-      title: req.body.title,
-      photo_url: req.body.photo_url
-    },
-    {
-      where: {
-        id: req.params.id
-      }
-    }
-  )
-    .then(dbPhotoData => {
-      if (!dbPhotoData) {
-        res.status(404).json({ message: 'No photo found with this id' });
-        return;
-      }
-      res.json(dbPhotoData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
 //deletes a photo
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);

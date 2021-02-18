@@ -97,5 +97,8 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+router.get('/update', (req, res) => {
+  res.render('update');
+});
 
 module.exports = router;
