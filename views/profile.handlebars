@@ -33,6 +33,7 @@
             {{/if}}
         </div>
     </div>
+    {{#if photos}}
     <div class="card-columns m-2">
         {{#each photos as |photo|}}
         <div class="card photo-card">
@@ -48,6 +49,11 @@
         </div>
         {{/each}}
     </div>
+    {{else}}
+    <div class='no-photos'>
+        <p>This user does not have any photos on display at this monment.</p>
+    </div>
+    {{/if}}
 </div>
 <script src="/javascript/profile.js"></script>
 

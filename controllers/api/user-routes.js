@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Photo,
-        attributes: ['id', 'title', 'photo_body', 'created_at']
+        attributes: ['id', 'title', 'photo_url', 'created_at']
       },
       {
         model: Comment,
