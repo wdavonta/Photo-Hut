@@ -7,10 +7,11 @@ async function updateDisplayName(event) {
     const linkedin_url = document.querySelector('input[name="linkedin-url"]').value.trim();
     const facebook_url = document.querySelector('input[name="facebook-url"]').value.trim();
     const twiter_url = document.querySelector('input[name="twiter-url"]').value.trim();
-    
+    const id = req.session.id;
+    console.log(id);
 
     if (display_name ) {
-      const response = await fetch('/update', {
+      const response = await fetch(`/user${id}`, {
         method: 'PUT',
         body: JSON.stringify({
          display_name
@@ -19,7 +20,7 @@ async function updateDisplayName(event) {
       });
     }
     if (instagram_url) {
-      const response = await fetch('/update', {
+      const response = await fetch(`/user${id}`, {
         method: 'PUT',
         body: JSON.stringify({
          display_name
@@ -28,7 +29,7 @@ async function updateDisplayName(event) {
       });
     }
     if (linkedin_url ) {
-      const response = await fetch('/update', {
+      const response = await fetch(`/user${id}`, {
         method: 'PUT',
         body: JSON.stringify({
          display_name
@@ -36,7 +37,7 @@ async function updateDisplayName(event) {
         headers: { 'Content-Type': 'application/json' }
       });
     if (facebook_url ) {
-      const response = await fetch('/update', {
+      const response = await fetch(`/user${id}`, {
         method: 'PUT',
         body: JSON.stringify({
          display_name
@@ -45,7 +46,7 @@ async function updateDisplayName(event) {
       });
     }
     if (twiter_url ) {
-      const response = await fetch('/update', {
+      const response = await fetch(`/user${id}`, {
         method: 'PUT',
         body: JSON.stringify({
          display_name

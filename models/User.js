@@ -35,6 +35,10 @@ User.init(
         len: [4]
       }
     },
+    prof_pic: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
       display_name: {
         type: DataTypes.STRING,
         allowNull: true,
