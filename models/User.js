@@ -37,29 +37,37 @@ User.init(
     },
     prof_pic: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
       display_name: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: true
       },
       instagram_url: {
         type: DataTypes.STRING,
-        allowNull: true, 
+        allowNull: true,
+        
       }, 
       linkedin_url: {
         type: DataTypes.STRING,
         allowNull: true,
-        
+        validate: {
+          isUrl: true
+        }
       }, 
       facebook_url: {
         type: DataTypes.STRING,
         allowNull: true,
-        
+        validate: {
+          isUrl: true
+        }
       }, 
-      twiter_url: {
+      twitter_url: {
         type: DataTypes.STRING,
         allowNull: true,
+        validate: {
+          isUrl: true
+        }
         
       }, 
   },
