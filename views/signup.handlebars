@@ -1,19 +1,25 @@
-<form class="signup-form d-flex flex-column">
-  <div class="d-flex justify-content-center ">
+<form class="signup-form d-flex flex-column container">
+  <div class="justify-content-center ">
     <h3>Sign up</h3>
   <div class="p-2">
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
+    <div class="row">
+    <label class="col-6 col-sm-3" class="col-6 col-sm-3" for="username-signup">username:</label>
+    <input class="col-6 col-sm-3" class="col-6 col-sm-3" type="text" id="username-signup" />
+    </div>
   </div>
   <div class="p-2">
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
+     <div class="row">
+    <label class="col-6 col-sm-3" for="email-signup">email:</label>
+    <input class="col-6 col-sm-3" type="text" id="email-signup" />
+  </div>
   </div>
   <div class="p-2">
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
+    <div class="row">
+    <label class="col-6 col-sm-3" for="password-signup">password:</label>
+    <input class="col-6 col-sm-3" type="password" id="password-signup" />
+    </div>
   </div>
-  <div class="p-2">
+  <div class="p-2 d-flex justify-content-center w-50">
     <button type="submit">signup</button>
   </div>
   </div>
