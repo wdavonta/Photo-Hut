@@ -30,7 +30,8 @@ var submitHandler = function(event) {
         $(userSearchEl)
             .val("")
             .attr("placeholder", "User not found, try another search");
-    } else {
+    }
+     else {
         var searchId = users.find(element => element.username === userSearchEl.val()).id
         // send to user profile
         document.location.replace(`/profile/${searchId}`);
