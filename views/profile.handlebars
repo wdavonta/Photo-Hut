@@ -5,14 +5,23 @@
     {{/if}} 
     <div class="row mb-5">
         <div class="col-lg-3 prof-img">
-            <img class="rounded-circle prof-pic" src={{user.prof_pic}} alt="profile picture">
+            {{#if user.prof_pic}}
+                <img class="rounded-circle prof-pic" src='{{user.prof_pic}}' alt="profile picture">
+            {{else}}
+                <img class="rounded-circle prof-pic" src='https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg' alt="profile picture">
+            {{/if}}
+            
             <!--generates upload photo modal, only available if in edit mode and can only enter edit mode when logged in-->
             {{#if myProfile}}
             <button type="button" data-toggle="modal" data-target="#photoUpload" class="photoUpload btn edit-only" id="upload-prof-pic"><i id="upload-prof-pic-i" class="fas fa-external-link-alt"></i></button>
             {{/if}} 
         </div>
         <div class="col-lg-8 prof-content">
-            <h1 id="display-name">{{user.display_name}}<span id="username">  ({{user.username}})</span></h1>
+            {{#if user.display_name}}
+                <h1 id="display-name">{{user.display_name}}<span id="username">  ({{user.username}})</span></h1>
+            {{else}}
+                <h1 id="display-name">{{user.username}}</h1>
+            {{/if}}
             {{#if myProfile}}
             <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" value="{{user.display_name}}">
             {{/if}}
@@ -20,7 +29,11 @@
             {{#if myProfile}}
             <div class="row">
                 <div class="bio-div col-10">
-                    <p class="bio">{{{format_bio user.bio}}}</p>
+                    {{#if user.bio}}
+                        <p class="bio">{{{format_bio user.bio}}}</p>
+                    {{else}}
+                        <p class="bio">This user has not yet set up their bio.</p>
+                    {{/if}}
                     <textarea placeholder="max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{user.bio}}</textarea>
                 </div>
                 <div class="col-2 prof-icons">
@@ -29,7 +42,11 @@
                 </div>
             </div>
             {{else}}
-            <p class="bio">{{{format_bio user.bio}}}</p>
+                {{#if user.bio}}
+                    <p class="bio">{{{format_bio user.bio}}}</p>
+                {{else}}
+                    <p class="bio">This user has not yet set up their bio.</p>
+                {{/if}}
             {{/if}}
         </div>
     </div>
