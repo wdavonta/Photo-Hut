@@ -28,6 +28,11 @@
     font-size: 50px !important;
     color: black !important;
 }
+#username {
+    font-size: 25px;
+    font-weight: normal;
+    color: #225ca3;
+}
 .prof-stats {
     font-size: 20px;
     font-weight: normal;

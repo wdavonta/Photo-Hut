@@ -12,7 +12,7 @@
             {{/if}} 
         </div>
         <div class="col-lg-8 prof-content">
-            <h1 id="display-name">{{user.display_name}}</h3>
+            <h1 id="display-name">{{user.display_name}}<span id="username">  ({{user.username}})</span></h1>
             {{#if myProfile}}
             <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" value="{{user.display_name}}">
             {{/if}}
