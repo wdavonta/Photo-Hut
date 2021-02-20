@@ -1,27 +1,27 @@
 const editBtn = document.getElementById("edit-profile");
 
 async function updateDB() {
-    const displayName = document.getElementById('display-name-edit').value.trim();
-    const profPic = document.querySelector('.prof-pic').getAttribute('src');
+    const display_name = document.getElementById('display-name-edit').value.trim();
+    const prof_pic = document.querySelector('.prof-pic').getAttribute('src');
     const bio = document.getElementById('bio-edit').value;
+    const id = document.getElementById('display-name-edit').getAttribute('user_id');
 
-    if (displayName) {
-        /*const response = await fetch('/api/users/PATH_TO_DB', {
-            method: 'post',
+    if (display_name) {
+        const response = await fetch(`/api/users/${id}`, {
+            method: 'PUT',
             body: JSON.stringify({
-                displayName,
-                profPic,
+                display_name,
+                prof_pic,
                 bio
             }),
             headers: { 'Content-Type': 'application/json' }
         });
-        const response = {}
 
         if (response.ok) {
             document.location.replace('/profile/');
         } else {
             alert(response.statusText);
-        }*/
+        }
     }
     // reload page with new info
     document.location.reload();
@@ -31,7 +31,6 @@ const toggleEditMode = () => {
     const editMode = editBtn.getAttribute('editMode');
     //get currently linked stylesheet
     const ss = document.getElementById("ss");
-    console.log(ss);
     if (editMode) {
         // if editmode is currently true then 
         // all info should be posted to db which will trigger the page to reload and editmode will be automatically exited
@@ -45,33 +44,3 @@ const toggleEditMode = () => {
 }
 
 editBtn.addEventListener('click', toggleEditMode);
-
-// originally from edit-photo.js
-/*//middleware(control) file to help interactions for editing photo between server(model) and front end(view)
-async function editFormHandler(event) {
-    event.preventDefault();
-  
-    const title = document.querySelector('input[name="photo-title"]').value.trim();
-    const photo_url = document.querySelector('input[name="photo-url"]').value.trim();
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch(`/api/photos/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({
-        title,
-        photo_url
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  
-    if (response.ok) {
-      document.location.replace('/dashboard/');
-    } else {
-      alert(response.statusText);
-    }
-  }
-  
-document.querySelector('.edit-photo-form').addEventListener('submit', editFormHandler);*/

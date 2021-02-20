@@ -11,28 +11,12 @@ const photoSubmitHandler = () => {
 
 async function updateProfPic() {
     const photo_url = document.getElementById('modal-photo-url').value;
+    const id = document.getElementById('display-name-edit').getAttribute('user_id');
 
     if (photo_url) {
-    // update currently displayed img
-    document.querySelector(".prof-pic").setAttribute('src', photo_url);
-    $('#photoUpload').modal('hide');
-    // update db NEEDS TO BE UPDATED
-    /*const response = await fetch(`/api/profile`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title,
-            photo_url
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-  
-    if (response.ok) {
-        document.location.reload();
-    } else {
-        alert(response.statusText);
-    }*/
+        // update currently displayed img
+        document.querySelector(".prof-pic").setAttribute('src', photo_url);
+        $('#photoUpload').modal('hide');
     } else {
         alert('Data field cannot be empty');
     }

@@ -43,6 +43,7 @@ const userdata = [
         username: 'mpergens6',
         email: 'hnapleton6@feedburner.com',
         password: 'password123',
+        prof_pic: 'https://picsum.photos/600',
         display_name: 'Morgan Pergens',
         bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!',
         instagram_url: 'https://www.instagram.com/orlandocitysc/?hl=en',

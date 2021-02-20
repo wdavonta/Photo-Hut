@@ -1,52 +1,46 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Photo, User, Comment } = require('../models');
+const { Photo, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('==========PROFILE============');
-    Photo.findAll({
+    
+    User.findOne({
+        attributes: { exclude: ['password'] },
         where: {
-            user_id: req.session.user_id
+          id: req.session.user_id
         },
-        attributes: [
-            'id',
-            'photo_url',
-            'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE photo.id = vote.photo_id)'), 'vote_count']
-        ],
         include: [
             {
+                model: Photo,
+                attributes: ['id', 'title', 'photo_url', 'created_at']
+            },
+            {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'photo_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'created_at'],
                 include: {
-                model: User,
-                attributes: ['username']
+                    model: Photo,
+                    attributes: ['title']
                 }
             },
             {
-                model: User,
-                attributes: ['username']
+                model: Photo,
+                attributes: ['title'],
+                through: Vote,
+                as: 'voted_photos'
             }
         ]
     })
-    .then(dbPhotoData => {
-        let photos = {}
-        if (dbPhotoData) {
-            photos = dbPhotoData.map(photo => photo.get({ plain: true }));
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
         }
-
-        const bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!';
-        const profPic = "https://picsum.photos/200/400";
-        const displayName = 'Sample User'
-
-        const profile = {profPic: profPic, displayName: displayName, bio: bio}
-
+        const user = dbUserData.get({ plain: true });
         res.render('profile', {
-            profile,
-            photos,
+            user,
             loggedIn: true,
             myProfile: true
         });
@@ -60,50 +54,42 @@ router.get('/', withAuth, (req, res) => {
 // load a different users profile
 router.get('/:id', (req, res) => {
     console.log('==========USER PROFILE============');
-    Photo.findAll({
+    User.findOne({
+        attributes: { exclude: ['password'] },
         where: {
-            user_id: req.params.id
+          id: req.params.id
         },
-        attributes: [
-            'id',
-            'photo_url',
-            'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE photo.id = vote.photo_id)'), 'vote_count']
-        ],
         include: [
             {
+                model: Photo,
+                attributes: ['id', 'title', 'photo_url', 'created_at']
+            },
+            {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'photo_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'created_at'],
                 include: {
-                model: User,
-                attributes: ['username']
+                    model: Photo,
+                    attributes: ['title']
                 }
             },
             {
-                model: User,
-                attributes: ['username']
+                model: Photo,
+                attributes: ['title'],
+                through: Vote,
+                as: 'voted_photos'
             }
         ]
     })
-    .then(dbPhotoData => {
-        let photos = {}
-        if (dbPhotoData) {
-            photos = dbPhotoData.map(photo => photo.get({ plain: true }));
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
         }
-
-        // temp data until profile db is running
-        const bio = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!';
-        const profPic = "https://picsum.photos/800/400";
-        const displayName = 'Other User'
-
-        const profile = {profPic: profPic, displayName: displayName, bio: bio}
-
+        const user = dbUserData.get({ plain: true });
         res.render('profile', {
-            profile,
-            photos,
+            user,
             loggedIn: req.session.loggedIn,
-            myProfile: false,
+            myProfile: false
         });
     })
     .catch(err => {

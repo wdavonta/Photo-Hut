@@ -5,23 +5,23 @@
     {{/if}} 
     <div class="row mb-5">
         <div class="col-lg-3 prof-img">
-            <img class="rounded-circle prof-pic" src={{profile.profPic}} alt="profile picture">
+            <img class="rounded-circle prof-pic" src={{user.prof_pic}} alt="profile picture">
             <!--generates upload photo modal, only available if in edit mode and can only enter edit mode when logged in-->
             {{#if myProfile}}
             <button type="button" data-toggle="modal" data-target="#photoUpload" class="photoUpload btn edit-only" id="upload-prof-pic"><i id="upload-prof-pic-i" class="fas fa-external-link-alt"></i></button>
             {{/if}} 
         </div>
         <div class="col-lg-8 prof-content">
-            <h1 id="display-name">{{profile.displayName}}</h3>
+            <h1 id="display-name">{{user.display_name}}</h3>
             {{#if myProfile}}
-            <input id="display-name-edit" type="text" class="edit-only form-control display-name p-0" value="{{profile.displayName}}">
+            <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" value="{{user.display_name}}">
             {{/if}}
-            <h3 class="mb-4 prof-stats pl-4">{{photos.length}} {{format_plural "photo" photos.length}}</h3>
+            <h3 class="mb-4 prof-stats pl-4">{{user.photos.length}} {{format_plural "photo" user.photos.length}}</h3>
             {{#if myProfile}}
             <div class="row">
                 <div class="bio-div col-10">
-                    <p class="bio">{{{format_bio profile.bio}}}</p>
-                    <textarea placeholder="max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{profile.bio}}</textarea>
+                    <p class="bio">{{{format_bio user.bio}}}</p>
+                    <textarea placeholder="max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{user.bio}}</textarea>
                 </div>
                 <div class="col-2 prof-icons">
                     <button data-toggle="modal" data-target="#photoUpload" class="btn photoUpload" id="upload-photo"><i id="upload-photo-i" class="fas fa-plus"></i></button>
@@ -29,13 +29,13 @@
                 </div>
             </div>
             {{else}}
-            <p class="bio">{{{format_bio profile.bio}}}</p>
+            <p class="bio">{{{format_bio user.bio}}}</p>
             {{/if}}
         </div>
     </div>
-    {{#if photos}}
+    {{#if user.photos}}
     <div class="card-columns m-2">
-        {{#each photos as |photo|}}
+        {{#each user.photos as |photo|}}
         <div class="card photo-card">
             <div class="embed-responsive image-container">
                 <a href="/photo/{{id}}">
