@@ -18,7 +18,7 @@
         </div>
         <div class="col-lg-8 prof-content">
             {{#if user.display_name}}
-                <h1 id="display-name">{{user.display_name}}<span id="username">  ({{user.username}})</span></h1>
+                <h1 id="display-name">{{user.display_name}}<a href="/profile/{{user_id}}" id="username">  ({{user.username}})</a></h1>
             {{else}}
                 <h1 id="display-name">{{user.username}}</h1>
             {{/if}}
@@ -109,7 +109,9 @@
     </div>
 </div>
 
+{{#if user.bio}}
 <script src="/javascript/read-more.js"></script>
+{{/if}}
 {{#if myProfile}}
 <script src="/javascript/edit-mode.js"></script>
 <script src="/javascript/add-photo.js"></script>

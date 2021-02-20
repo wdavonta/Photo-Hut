@@ -4,7 +4,6 @@ const { Photo, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session);
     console.log('==========PROFILE============');
     
     User.findOne({
@@ -53,6 +52,9 @@ router.get('/', withAuth, (req, res) => {
 
 // load a different users profile
 router.get('/:id', (req, res) => {
+    //redirect to profile page if user_id matches your own
+    console.log(`${req.params.id} ${req.session.user_id}`)
+
     console.log('==========USER PROFILE============');
     User.findOne({
         attributes: { exclude: ['password'] },
@@ -86,10 +88,12 @@ router.get('/:id', (req, res) => {
             return;
         }
         const user = dbUserData.get({ plain: true });
+        let myProfile = false;
+        if (req.params.id == req.session.user_id) {myProfile = true}
         res.render('profile', {
             user,
             loggedIn: req.session.loggedIn,
-            myProfile: false
+            myProfile
         });
     })
     .catch(err => {

@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 
 //displays all photo
 router.get('/', (req, res) => {
-  console.log('======================');
+  console.log('===========MAIN REDIRECT===========');
   Photo.findAll({
     attributes: [
       'id',

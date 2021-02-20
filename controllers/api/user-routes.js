@@ -13,6 +13,13 @@ router.get('/', (req, res) => {
     });
 });
 
+// for test purposes
+router.get('/session', (req, res) => {
+    console.log('=========get session========')
+    console.log(req.session.user_id)
+    res.json(req.session);
+});
+
 //gets a single user
 router.get('/:id', (req, res) => {
   User.findOne({
@@ -76,31 +83,33 @@ router.post('/', (req, res) => {
 });
 //logs a user in and starts a session 
 router.post('/login', (req, res) => {
-  User.findOne({
-    where: {
-      email: req.body.email
-    }
-  }).then(dbUserData => {
-    if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
-      return;
-    }
+    console.log("=========login=========")
+    User.findOne({
+            where: {
+            email: req.body.email
+        }
+    //}).then(async function(dbUserData) {
+    }).then(dbUserData => {
+        //console.log(dbUserData);
+        if (!dbUserData) {
+            res.status(400).json({ message: 'No user with that email address!' });
+            return;
+        }
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password!' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.user_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-  
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
+        
+            return res.json({ user: dbUserData, message: 'You are now logged in!' });
+        });
     });
-  });
 });
 
 router.post('/logout', (req, res) => {
@@ -112,25 +121,32 @@ router.post('/logout', (req, res) => {
   else {
     res.status(404).end();
   }
+  console.log("you are now logged out")
 });
+
+
 //updates the user information
 router.put('/:id', (req, res) => {
-  User.update(req.body, {
-    individualHooks: true,
-    where: {
-      id: req.params.id
+    if (req.body.password) {
+            req.body.password = User.changePassword(req.body.password);
     }
-  })
+
+    User.update(req.body, {
+        individualHooks: true,
+        where: {
+            id: req.params.id
+        }
+    })
     .then(dbUserData => {
-      if (!dbUserData) {
-        res.status(404).json({ message: 'No user found with this id' });
-        return;
-      }
-      res.json(dbUserData);
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        res.json(dbUserData);
     })
     .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 //deletes a user
