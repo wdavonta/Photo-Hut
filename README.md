@@ -34,5 +34,15 @@
 
    ## Questions for the Developer
    *Have a question? Contact me below and see what else I'm working on!*  
-   [AZambik](https://www.github.com/AZambik)  
-   azambik@yahoo.com
+   [AZambik](https://www.github.com/AZambik)
+   azambik@gmail.com
+   [dCharney](https://www.github.com/dcharney)
+   dcharney@gmail.com
+   [MichaelDevelopsCode](https://www.github.com/michaeldevelopscode)
+   michaeldevelopscode@gmail.com
+   [wdavonta](https://www.github.com/wdavonta)
+   wdavonta@gmail.com
+   [jadavis30](https://www.github.com/jadavis30)
+   jared.davis21@yahoo.com
+   [adrianMike2](https://www.github.com/adrianmike2)
+   adrianmike2@gmail.com
