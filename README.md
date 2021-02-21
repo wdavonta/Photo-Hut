@@ -1,65 +1,91 @@
-# Photo Hut  
-   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="126" height="20" role="img" aria-label="License: MIT License"><title>License: MIT License</title><linearGradient id="s" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="r"><rect width="126" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#r)"><rect width="51" height="20" fill="#555"/><rect x="51" width="75" height="20" fill="#007ec6"/><rect width="126" height="20" fill="url(#s)"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><text aria-hidden="true" x="265" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="410">License</text><text x="265" y="140" transform="scale(.1)" fill="#fff" textLength="410">License</text><text aria-hidden="true" x="875" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="650">MIT License</text><text x="875" y="140" transform="scale(.1)" fill="#fff" textLength="650">MIT License</text></g></svg>
+# [Photo-Hut](https://ucf-photo-hut.herokuapp.com/)
+ ![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)
 
-   ## Description
-   *A brief description of the use and scope of the project:*    
-   PhotoHut is a community site for professional photographers. Allowing collaboration, inspiration, and accessibility for those serious about their art. The site’s success will be in its number of users and activity through the comment and voting system, not linking endless hashtags. 
+## Description
 
-   ## Table of Contents
-   - [Description](#description)
-   - [Installation](#installation)
-   - [Usage](#usage)
-   - [License](#license)
-   - [Contributing](#contributing)
-   - [Questions](#questions-for-the-developer)
+PhotoHut is a community site for professional photographers. Allowing collaboration, inspiration, and accessibility for those serious about their art. The site’s success will be in its number of users and activity through the comment and voting system.
 
-   ## Installation
-   *Steps on how to install:*  
-   Using Node.js, use 'npm install' to add dependencies. Then to create and seed the database, add an .env file to store the following data, replacing DB_USER and DB_PW with your own credentials:
+## Table of Contents
+- [Description](#description)
+- [Usage](#usage)
+- [Installation](#installation)
+- [License](#license)
+- [Contributing](#contributing)
+- [Questions](#questions-for-the-developer)
 
-   DB_NAME=photohut_db
+## Usage
 
-   DB_USER=
+The deployed web application can be accessed at [Photo-Hut](https://ucf-photo-hut.herokuapp.com/).
 
-   DB_PW=
+ Photo Hut allows professional photographers to connect and collaborate in a space devoted to their art, apart from existing social networking applications which focus on promotion of the individual over the content itself. Users create an account that allows them to create a profile to disply their work. Future development plans will allow users to provide links to their other social media accounts such as LinkedIn. Users currently can upload their photos with captions, but the ability to pin their favorite at the top and reorder the photos according to their own design is also in development. Using the Search function, users can browse other profiles, commenting and upvoting. This collaboration allows photographers to follow trends in their community by popularity and gather tips and tricks from others.
 
-   D_PORT=3001
+## Installation
 
-   ES_KEY=default
+Installing this repository locally is not necessary for usage, but if you wish to contribute to development then the following steps will be required to get up and running:
 
-   Use mysql -u 'your username' -p to open mysql and run the 'source schema.sql;' command to create the database. Exit with 'quit;' and then use the 'npm run seed' command to seed the database with dummy data provided.
+*You must have mysql installed to be able to run this repository on your local machine*
 
-   ## Usage
-   *Instructions for use with examples:*  
-   The design of Photo Hut is to allow professional photographers to connect and collaborate in a space devoted to their art, instead of an endless pursuit of 'likes' and linking hashtags on their photos. Users create an account that allows them to create a profile with their business information and LinkedIn account. Then, they can upload their photos with captions with an option to pin their favorite at the top and reorder the photos according to their own design. Using the Search function, users can browse other profiles, commenting and upvoting. This collaboration allows photographers to follow trends in their community by popularity and gather tips and tricks from others.
+1. clone the repository 
 
-   ## License
-   *[MIT License](https://www.mit.edu/~amini/LICENSE.md)*
+       $ git clone git@github.com:Azambik/Photo-Hut.git
 
-   ## Contributing
-   *The ins and outs of how to contribute.*  
-   To contribute to the future development of this site, please reach out directly to Andrew Zambik, 'Azambik' on GitHub to gain access to the workflow and be added to the queue for ongoing enhancements.
+2. install the necesary dependencies
 
-   ## Tests
-   *Run these tests to showcase the application.*  
-   For tests through Jest, run 'npm run test' to test helper utilities.
+       $ npm install
 
-   ## Questions for the Developer
-   *Have a question? Contact me below and see what else I'm working on!*  
-   [AZambik](https://www.github.com/AZambik)
-   azambik@gmail.com
+3. initialize your local database:
 
-   [dCharney](https://www.github.com/dcharney)
-   delaneycharney@gmail.com
+   first login to mysql (this may be different depending on how you have mysql set up)
 
-   [MichaelDevelopsCode](https://www.github.com/michaeldevelopscode)
-   michaeldevelopscode@gmail.com
+       $ myql -u root -p
+   then create the database by running the following within the cli
 
-   [wdavonta](https://www.github.com/wdavonta)
-   wdavonta@gmail.com
+       mysql> source db/schema.sql
+4. seed the database with test data
 
-   [jadavis30](https://www.github.com/jadavis30)
-   jared.davis21@yahoo.com
+       $ npm run seeds
 
-   [adrianMike2](https://www.github.com/adrianmike2)
-   adrianmike2@gmail.com
+5. link your unique environemental variables. Create a '.env' file in the root folder with the following info:
+
+       DB_NAME='photohut_db'
+       DB_USER= [YOUR MYSQL USERNAME]
+       DB_PW= [YOUR MYSQL PASSWORD]
+       D_PORT='3001' // or alternate port to host locally
+       ES_KEY= [UNIQUE PASSWORD]
+
+6. start your local server to view the webapp in your browser
+
+       $ npm start
+
+7. To view the application in a web browser at the port you defined before, enter:
+
+       localhost:3001
+
+
+**Happy Developing!**
+
+## License
+*[MIT License](https://www.mit.edu/~amini/LICENSE.md)*
+
+## Contributing
+
+To contribute to the future development of this site, please reach out directly to Andrew Zambik, 'Azambik' on GitHub to gain access to the workflow and be added to the queue for ongoing enhancements.
+
+## Tests
+
+Tests are set up through Jest to validate functionality of the helper utilities. To run the test script, first follow the installation instructions. Then enter
+
+         $ npm test 
+
+
+## Questions for the Developer
+*Have a question? Contact me below and see what else I'm working on!*  
+
+|  Role | Github      | Email |
+| ---- | ----------- | ----------- |
+| Database & Routes | [AZambik](https://www.github.com/AZambik)      | azambik@gmail.com       |
+| Profile & Merges | [dcharney](https://www.github.com/dcharney)    | delaneycharney@gmail.com        |
+| Dashboard | [MichaelDevelopsCode](https://www.github.com/michaeldevelopscode)| michaeldevelopscode@gmail.com|
+| Photo Modal | [wdavonta](https://www.github.com/wdavonta) | wdavonta@gmail.com |
+| Navbar | [jadavis30](https://www.github.com/jadavis30) | jared.davis21@yahoo.com |
+| CSS | [adrianMike2](https://www.github.com/adrianmike2) | adrianmike2@gmail.com |
