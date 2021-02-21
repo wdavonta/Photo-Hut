@@ -27,29 +27,42 @@ Installing this repository locally is not necessary for usage, but if you wish t
 
 1. clone the repository 
 
-         $ git clone git@github.com:Azambik/Photo-Hut.git
+       $ git clone git@github.com:Azambik/Photo-Hut.git
 
 2. install the necesary dependencies
 
-         $ npm install
+       $ npm install
 
 3. initialize your local database:
 
    first login to mysql (this may be different depending on how you have mysql set up)
 
-         $ myql -u root -p
+       $ myql -u root -p
    then create the database by running the following within the cli
 
-         mysql> source db/schema.sql
+       mysql> source db/schema.sql
 4. seed the database with test data
 
-         $ npm run seeds
+       $ npm run seeds
 
-5. start your local server to view the webapp in your browser
+5. link your unique environemental variables. Create a '.env' file in the root folder with the following info:
 
-         $ npm start
+       DB_NAME='photohut_db'
+       DB_USER= [YOUR MYSQL USERNAME]
+       DB_PW= [YOUR MYSQL PASSWORD]
+       D_PORT='3001' // or alternate port to host locally
+       ES_KEY= [UNIQUE PASSWORD]
 
-happy developing!
+6. start your local server to view the webapp in your browser
+
+       $ npm start
+
+7. To view the application in a web browser at the port you defined before, enter:
+
+       localhost:3001
+
+
+**Happy Developing!**
 
 ## License
 *[MIT License](https://www.mit.edu/~amini/LICENSE.md)*
