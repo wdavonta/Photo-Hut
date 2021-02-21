@@ -7,9 +7,9 @@
 * {
     box-sizing: border-box;
 }
+
 html,body, main {
     transition: background-color .5s;
-    height: 100%;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
@@ -40,3 +40,13 @@ button {
 button:hover {
     background-color: #3486eb;
 }
+
+footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-size: 110%;
+}
+
+/** PHOTO CARD STYLES **/
