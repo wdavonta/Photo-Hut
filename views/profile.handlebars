@@ -25,12 +25,27 @@
             {{#if myProfile}}
             <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" value="{{user.display_name}}">
             {{/if}}
-            <div class="icons">
-                <a href="{{user.instagram_url}}"><i class="icon instagram-icon"></i></a>
-                <a href="{{user.linkedin_url}}"><i class="icon linkedIn-icon"></i></a>
-                <a href="{{user.facebook_url}}"><i class="icon facebook-icon"></i></a>
-                <a href="{{user.twitter_url}}"><i class="icon twitter-icon"></i></a>
-                <h3 class="mb-1 pl-1 prof-stats font-italic">{{user.photos.length}} {{format_plural "photo" user.photos.length}}</h3>
+            <div class="socials-icons">
+                {{#if user.instagram_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My Instagram URL" href="{{user.instagram_url}}"><i class="socials-icon instagram-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link an Instagram Account" href="{{user.instagram_url}}"><i class="socials-icon instagram-icon"></i></a>
+                {{/if}}
+                {{#if user.linkedin_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My LinkedIn URL" href="{{user.linkedin_url}}"><i class="socials-icon linkedIn-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a LinkedIn Account" href="{{user.linkedin_url}}"><i class="socials-icon linkedIn-icon"></i></a>
+                {{/if}}
+                {{#if user.facebook_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My Facebook URL" href="{{user.facebook_url}}"><i class="socials-icon facebook-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Facebook Account" href="{{user.facebook_url}}"><i class="socials-icon facebook-icon"></i></a>
+                {{/if}}
+                {{#if user.twitter_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My Twitter URL" href="{{user.twitter_url}}"><i class="socials-icon twitter-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Twitter Account" href="{{user.twitter_url}}"><i class="socials-icon twitter-icon"></i></a>
+                {{/if}}
             </div>
             {{#if myProfile}}
             <div class="row">

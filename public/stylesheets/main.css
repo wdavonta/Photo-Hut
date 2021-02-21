@@ -50,22 +50,24 @@ footer {
 }
 
 /** PHOTO CARD STYLES **/
-.icons {
+.socials-icons {
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
 }
-.icon {
-    margin: 0 3px;
+.socials-icons a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socials-icon {
     width:30px;
     height: 30px;
     background-size: contain;
     display: inline-block;
     transition: 0.2s ease-in-out;
-}
-.icon:hover {
-    height: 35px;
-    width: 35px;
 }
 .instagram-icon {
 	background-image: url(../images/Instagram_AppIcon_Aug2017.png);

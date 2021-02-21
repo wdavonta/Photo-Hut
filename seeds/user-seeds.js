@@ -17,17 +17,22 @@ const userdata = [
     {
         username: 'jwilloughway1',
         email: 'rmebes1@sogou.com',
-        password: 'password123'
+        password: 'password123',
+        instagram_url: 'https://www.instagram.com/orlandocitysc/?hl=en',
+        linkedin_url: 'https://www.linkedin.com/in/ericstanulis/'
     },
     {
         username: 'iboddam2',
         email: 'cstoneman2@last.fm',
-        password: 'password123'
+        password: 'password123',
+        instagram_url: 'https://www.instagram.com/orlandocitysc/?hl=en',
+        twitter_url: 'https://twitter.com/OrlandoLionsDen'
     },
     {
         username: 'dstanmer3',
         email: 'ihellier3@goo.ne.jp',
-        password: 'password123'
+        password: 'password123',
+        linkedin_url: 'https://www.linkedin.com/in/ericstanulis/'
     },
     {
         username: 'djiri4',

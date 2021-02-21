@@ -40,7 +40,10 @@ const toggleEditMode = () => {
         ss.setAttribute('href','/stylesheets/profile-edit.css');
         editBtn.firstChild.className = 'fas fa-save';
         editBtn.setAttribute('editMode','enabled');
+        // enable tooltips
+        $(function () {$('[data-toggle="tooltip"]').tooltip()})
     }
 }
 
 editBtn.addEventListener('click', toggleEditMode);
+
