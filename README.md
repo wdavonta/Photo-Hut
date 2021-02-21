@@ -15,7 +15,19 @@
 
    ## Installation
    *Steps on how to install:*  
-   Using Node.js, use 
+   Using Node.js, use 'npm install' to add dependencies. Then to create and seed the database, add an .env file to store the following data, replacing DB_USER and DB_PW with your own credentials:
+
+   DB_NAME=photohut_db
+
+   DB_USER=
+
+   DB_PW=
+
+   D_PORT=3001
+
+   ES_KEY=default
+
+   Use mysql -u 'your username' -p to open mysql and run the 'source schema.sql;' command to create the database. Exit with 'quit;' and then use the 'npm run seed' command to seed the database with dummy data provided.
 
    ## Usage
    *Instructions for use with examples:*  
@@ -30,19 +42,24 @@
 
    ## Tests
    *Run these tests to showcase the application.*  
-   For tests through Jest, run 'npm run test' to test helper utilities. Further, as our userbase isn't at an optimal number yet, you must create and seed the database. To do so, use mysql to run 'source schema.sql;' then exit with 'quit;'. Now, you can seed the site with the dummy data we've provided. Use 'npm run seed' in the terminal to add the data. 
+   For tests through Jest, run 'npm run test' to test helper utilities.
 
    ## Questions for the Developer
    *Have a question? Contact me below and see what else I'm working on!*  
    [AZambik](https://www.github.com/AZambik)
    azambik@gmail.com
+
    [dCharney](https://www.github.com/dcharney)
-   dcharney@gmail.com
+   delaneycharney@gmail.com
+
    [MichaelDevelopsCode](https://www.github.com/michaeldevelopscode)
    michaeldevelopscode@gmail.com
+
    [wdavonta](https://www.github.com/wdavonta)
    wdavonta@gmail.com
+
    [jadavis30](https://www.github.com/jadavis30)
    jared.davis21@yahoo.com
+
    [adrianMike2](https://www.github.com/adrianmike2)
    adrianmike2@gmail.com
