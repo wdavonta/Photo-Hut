@@ -9,14 +9,14 @@
         <ul class="navbar-nav mr-auto">
             {{#if loggedIn}}
             <li class="nav-item">
-                <a class="nav-link" href="/profile">My Profile</a>
+                <a class="nav-link fas fa-user text-white" href="/profile"></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="logout" href="/profile">Sign Out</a>
+                <a class="nav-link fas fa-sign-out-alt text-white" id="logout" href="/profile"></a>
             </li>
             {{else}}
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+                <a class="nav-link dropdown-toggle fas fa-sign-in-alt text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <form class="login-form">
                         <div class="form-group">
@@ -42,8 +42,8 @@
             {{/if}}
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input id="nav-search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input id="nav-search" class="form-control mr-sm-2" name="search" autofocus="true" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn searchBtn" type="submit"><span class="fas fa-search text-white"></span></button>
         </form>
     </div>
 </nav>
