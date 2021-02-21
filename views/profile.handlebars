@@ -51,23 +51,7 @@
         </div>
     </div>
     {{#if user.photos}}
-    <div class="card-columns m-2">
-        {{#each user.photos as |photo|}}
-        <div class="card photo-card">
-            <div class="embed-responsive image-container">
-                <a href="/photo/{{id}}">
-                    <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img-top">
-                </a>
-            </div>
-            
-            <div class="edit-only photo-details">
-                <button class="btn edit-photo"><i class="fas fa-pen"></i></button>
-                <button photo_id="{{photo.id}}" class="btn delete-photo"><i photo_id="{{photo.id}}" class="fas fa-trash-alt"></i></button>
-                <div class="photo-title card-title">{{photo.title}}</div>
-            </div>
-        </div>
-        {{/each}}
-    </div>
+    {{> photo-card user.photos}}
     {{else}}
     <div class='no-photos'>
         <p>This user does not have any photos on display at this monment.</p>

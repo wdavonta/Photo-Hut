@@ -1,0 +1,17 @@
+<div class="card-columns m-2">
+    {{#each this}}
+    <div class="card photo-card">
+        <div class="embed-responsive image-container">
+            <a href="/photo/{{id}}">
+                <img src="{{photo_url}}" alt={{title}} class="card-img-top">
+            </a>
+        </div>
+        
+        <div class="edit-only photo-details">
+            <button class="btn edit-photo"><i class="fas fa-pen"></i></button>
+            <button photo_id="{{id}}" class="btn delete-photo"><i photo_id="{{id}}" class="fas fa-trash-alt"></i></button>
+            <div class="photo-title card-title">{{title}}</div>
+        </div>
+    </div>
+    {{/each}}
+</div>
