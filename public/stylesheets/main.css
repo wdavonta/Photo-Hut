@@ -50,3 +50,32 @@ footer {
 }
 
 /** PHOTO CARD STYLES **/
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.icon {
+    margin: 0 3px;
+    width:30px;
+    height: 30px;
+    background-size: contain;
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+}
+.icon:hover {
+    height: 35px;
+    width: 35px;
+}
+.instagram-icon {
+	background-image: url(../images/Instagram_AppIcon_Aug2017.png);
+}
+.linkedIn-icon {
+	background-image: url(../images/linkedIn.svg);
+}
+.facebook-icon {
+	background-image: url(../images/facebook-icon-png-734.png);
+}
+.twitter-icon {
+	background-image: url(../images/Twitter\ social\ icons\ -\ rounded\ square\ -\ blue.png);
+}

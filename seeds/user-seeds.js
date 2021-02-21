@@ -11,7 +11,7 @@ const userdata = [
         bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!',
         instagram_url: 'https://www.instagram.com/orlandocitysc/?hl=en',
         linkedin_url: 'https://www.linkedin.com/in/ericstanulis/',
-        facebook_url: 'www.facebook.com',
+        facebook_url: 'https://www.facebook.com',
         twitter_url: 'https://twitter.com/OrlandoLionsDen'
     },
     {
@@ -48,7 +48,7 @@ const userdata = [
         bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!',
         instagram_url: 'https://www.instagram.com/orlandocitysc/?hl=en',
         linkedin_url: 'https://www.linkedin.com/in/ericstanulis/',
-        facebook_url: 'www.facebook.com',
+        facebook_url: 'https://www.facebook.com',
         twitter_url: 'https://twitter.com/OrlandoLionsDen'
     },
     {

@@ -25,7 +25,13 @@
             {{#if myProfile}}
             <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" value="{{user.display_name}}">
             {{/if}}
-            <h3 class="mb-4 prof-stats pl-4">{{user.photos.length}} {{format_plural "photo" user.photos.length}}</h3>
+            <div class="icons">
+                <a href="{{user.instagram_url}}"><i class="icon instagram-icon"></i></a>
+                <a href="{{user.linkedin_url}}"><i class="icon linkedIn-icon"></i></a>
+                <a href="{{user.facebook_url}}"><i class="icon facebook-icon"></i></a>
+                <a href="{{user.twitter_url}}"><i class="icon twitter-icon"></i></a>
+                <h3 class="mb-1 pl-1 prof-stats font-italic">{{user.photos.length}} {{format_plural "photo" user.photos.length}}</h3>
+            </div>
             {{#if myProfile}}
             <div class="row">
                 <div class="bio-div col-10">
