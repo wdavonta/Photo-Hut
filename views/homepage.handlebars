@@ -14,26 +14,13 @@
     </form>
     <!-- Title for featured section -->
     <h2>Featured</h2>
- </div>
- <!-- Line divider -->
-  <hr>
+</div>
+<!-- Line divider -->
+<hr>
 <!--  featured section -->
- <div id="featured-section">
-    <div class="card-columns m-2">
-        {{#each photos as |photo|}}
-        <a href="/photo/{{id}}" class="card photo-card">
-            <div class="embed-responsive image-container">
-                <img src="{{photo.photo_url}}" alt={{photo.title}} class="card-img">
-            </div>
-            
-            <div class="card-reveal">
-                <div class="card-title">{{photo.title}}</div>
-            </div>
-        </a>
-        {{/each}}
-    </div>
- </div>
+{{> photo-card photos}}
+</div>
 
 <!-- js link -->
- <script src="/javascript/search.js"></script>
+<script src="/javascript/search.js"></script>
 

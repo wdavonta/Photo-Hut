@@ -11,7 +11,6 @@ const photoSubmitHandler = () => {
 
 async function updateProfPic() {
     const photo_url = document.getElementById('modal-photo-url').value;
-    const id = document.getElementById('display-name-edit').getAttribute('user_id');
 
     if (photo_url) {
         // update currently displayed img
