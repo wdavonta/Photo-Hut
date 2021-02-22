@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img src="/images/photohut.png"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            {{#if loggedIn}}
+            <li class="nav-item">
+                <a class="nav-link fas fa-user text-white" href="/profile"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link fas fa-sign-out-alt text-white" id="logout" href="/profile"></a>
+            </li>
+            {{else}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fas fa-sign-in-alt text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="email-login">Email address</label>
+                            <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-group">
+                            <label for="password-login">Password</label>
+                            <input type="password" class="form-control" id="password-login">
+                        </div>
+                        <div class="form-inline">
+                            <button id="login-btn" type="submit" class="btn btn-primary">Login</button>
+                           
+                            
+                            <!--<a class="nav-link" href="/login">Sign Up</a>-->
+                        </div>
+                         <div>
+                                <a href="/signup">Sign up here!</a>
+                            </div>
+                    </form>
+                </div>
+            </li>
+            {{/if}}
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input id="nav-search" class="form-control mr-sm-2" name="search" autofocus="true" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn searchBtn" type="submit"><span class="fas fa-search text-white"></span></button>
+        </form>
+    </div>
+</nav>
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{else}}
+<script src="/javascript/login.js"></script>
+{{/if}}

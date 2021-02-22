@@ -1,0 +1,157 @@
+<link id="ss" rel="stylesheet" href="/stylesheets/profile.css">
+<div class="container profile mt-5">
+    {{#if myProfile}}
+    <p id="editMode-banner" class="edit-only">·  EDIT MODE  ·  EDIT MODE  ·  EDIT MODE  ·  EDIT MODE  ·  EDIT MODE  ·</p>
+    {{/if}} 
+    <div class="row mb-5">
+        <div class="col-lg-3 prof-img">
+            {{#if user.prof_pic}}
+                <img class="rounded-circle prof-pic" src='{{user.prof_pic}}' alt="profile picture">
+            {{else}}
+                <img class="rounded-circle prof-pic" src='https://st4.depositphotos.com/4329009/19956/v/600/depositphotos_199564354-stock-illustration-creative-vector-illustration-default-avatar.jpg' alt="profile picture">
+            {{/if}}
+            
+            <!--generates upload photo modal, only available if in edit mode and can only enter edit mode when logged in-->
+            {{#if myProfile}}
+            <button type="button" data-toggle="modal" data-target="#photoUpload" class="photoUpload btn edit-only" id="upload-prof-pic"><i id="upload-prof-pic-i" class="fas fa-external-link-alt"></i></button>
+            {{/if}} 
+        </div>
+        <div class="col-lg-8 prof-content">
+            {{#if user.display_name}}
+                <h1 id="display-name">{{user.display_name}}<a href="/profile/{{user_id}}" id="username">  ({{user.username}})</a></h1>
+            {{else}}
+                <h1 id="display-name">{{user.username}}</h1>
+            {{/if}}
+            {{#if myProfile}}
+            <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" placeholder="Enter your Display Name." value="{{user.display_name}}">
+            {{/if}}
+            <div class="socials-icons">
+                {{#if user.instagram_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My Instagram URL" href="{{user.instagram_url}}"><i class="socials-icon instagram-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link an Instagram Account" href="{{user.instagram_url}}"><i class="socials-icon instagram-icon"></i></a>
+                {{/if}}
+                {{#if user.linkedin_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My LinkedIn URL" href="{{user.linkedin_url}}"><i class="socials-icon linkedIn-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a LinkedIn Account" href="{{user.linkedin_url}}"><i class="socials-icon linkedIn-icon"></i></a>
+                {{/if}}
+                {{#if user.facebook_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My Facebook URL" href="{{user.facebook_url}}"><i class="socials-icon facebook-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Facebook Account" href="{{user.facebook_url}}"><i class="socials-icon facebook-icon"></i></a>
+                {{/if}}
+                {{#if user.twitter_url}}
+                <a data-toggle="tooltip" data-placement="top" title="Edit My Twitter URL" href="{{user.twitter_url}}"><i class="socials-icon twitter-icon"></i></a>
+                {{else}}
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Twitter Account" href="{{user.twitter_url}}"><i class="socials-icon twitter-icon"></i></a>
+                {{/if}}
+            </div>
+            {{#if myProfile}}
+            <div class="bio-cont row">
+                <div class="bio-div col-10">
+                    {{#if user.bio}}
+                        <p class="bio">{{{format_bio user.bio}}}</p>
+                    {{else}}
+                        <p class="bio">This user has not yet set up their bio.</p>
+                    {{/if}}
+                    <textarea placeholder="Enter you bio. Max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{user.bio}}</textarea>
+                </div>
+                <div class="col-2 prof-icons">
+                    <button data-toggle="modal" data-target="#photoUpload" class="btn photoUpload" id="upload-photo"><i id="upload-photo-i" class="fas fa-plus"></i></button>
+                    <button class="btn" editMode='' id="edit-profile"><i class="fas fa-pen"></i></button>
+                </div>
+            </div>
+            {{else}}
+                {{#if user.bio}}
+                    <p class="bio">{{{format_bio user.bio}}}</p>
+                {{else}}
+                    <p class="bio">This user has not yet set up their bio.</p>
+                {{/if}}
+            {{/if}}
+        </div>
+    </div>
+    {{#if user.photos}}
+    {{> photo-card user.photos}}
+    {{else}}
+    <div class='no-photos'>
+        <p>This user does not have any photos on display at this monment.</p>
+    </div>
+    {{/if}}
+</div>
+<!-- Add Photo modal -->
+<div class="modal fade" id="photoUpload" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="photo-upload-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form ml-5 mr-5">
+                    <div id="modal-title-form-group" class="form-group">
+                        <label for="inputTitle">Title</label>
+                        <input type="text" class="form-control" id="modal-photo-title" placeholder="Enter title">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTitle">Photo Url</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-link"></i></div>
+                            </div>
+                            <input type="url" class="form-control" id="modal-photo-url" placeholder="https://[YOUR-PHOTO-URL]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="photo-submit-btn btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Social modal -->
+<div class="modal fade" id="editSocials" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editSocials-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form ml-5 mr-5">
+                    <div class="form-group">
+                        <label for="inputTitle">Enter URL</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-link"></i></div>
+                            </div>
+                            <input type="url" class="form-control" id="editSocials-url" placeholder="https://[YOUR-URL]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="editSocials-submit-btn btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#if user.bio}}
+<script src="/javascript/read-more.js"></script>
+{{/if}}
+{{#if myProfile}}
+<script src="/javascript/edit-mode.js"></script>
+<script src="/javascript/add-photo.js"></script>
+<script src="/javascript/delete-photo.js"></script>
+{{/if}}
+<!-- when edit-icon-photo is selected, focus shadow around selected photo and delete icon appears in top right corner, sets up for future functionality of editing image title and tags-->
+<!-- two icons in bottom right corner of profile header, 1 to add new phtoo which opens a modal for inputting path to photo, and one for editing profile info, turns all prof fields into input fields, add selectable plus sign over prof pic which generates same modal as add photo button but links to prof pic db 
+ADD TOOLTIPS FROM BOOTSTRAP TO PROF-ICONS-->

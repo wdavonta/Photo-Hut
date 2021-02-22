@@ -1,0 +1,76 @@
+/* STYLES APPLICABLE FOR ALL PAGES */
+:root {
+    --pistachio: #dcfad6;
+    --cocobrown: #1d1108;
+    --pistachioshadow: #acc2a8;
+}
+* {
+    box-sizing: border-box;
+}
+
+html,body, main {
+    transition: background-color .5s;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: #333;
+}
+main {
+    margin-top: 100px;
+}
+a {
+    text-decoration: none;
+    color: #225ca3;
+    font-weight: bold;
+    transition: color .1s;
+}
+button {
+    background-color: #225ca3;
+    border: 0;
+    padding: 1%;
+    color: white;
+    font-weight: bold;
+    transition: background-color .1s;
+    cursor: pointer;
+    border-radius: 5px;
+}
+footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-size: 110%;
+}
+
+/** PHOTO CARD STYLES **/
+.socials-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.socials-icons a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.socials-icon {
+    width:30px;
+    height: 30px;
+    background-size: contain;
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+}
+.instagram-icon {
+	background-image: url(../images/Instagram_AppIcon_Aug2017.png);
+}
+.linkedIn-icon {
+	background-image: url(../images/linkedIn.svg);
+}
+.facebook-icon {
+	background-image: url(../images/facebook-icon-png-734.png);
+}
+.twitter-icon {
+	background-image: url(../images/Twitter\ social\ icons\ -\ rounded\ square\ -\ blue.png);
+}

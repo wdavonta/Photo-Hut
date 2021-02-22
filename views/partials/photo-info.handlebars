@@ -1,0 +1,13 @@
+<article class="photo">
+  <div class="title">
+    <img src="{{photo_url}}" alt={{title}} class="card-img">
+  </div>
+  <div class="meta">
+    {{vote_count}} {{format_plural "upvote" vote_count}}
+    |
+    {{comments.length}} {{format_plural "comment" comments.length}}
+    <br>
+    Posted by <a href="/profile/{{user_id}}"> {{user.username}} </a> on {{format_date created_at}}
+   
+  </div>
+</article>
