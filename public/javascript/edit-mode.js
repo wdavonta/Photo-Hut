@@ -33,6 +33,8 @@ async function updateDB() {
                 break;
         }
     };
+
+    console.log(linkedin_url);
     const response = await fetch(`/api/users/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
