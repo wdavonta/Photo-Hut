@@ -24,9 +24,6 @@ a {
     font-weight: bold;
     transition: color .1s;
 }
-a:hover {
-    color: #3486eb;
-}
 button {
     background-color: #225ca3;
     border: 0;
@@ -37,10 +34,6 @@ button {
     cursor: pointer;
     border-radius: 5px;
 }
-button:hover {
-    background-color: #3486eb;
-}
-
 footer {
     border-top: 1px solid #ccc;
     display: flex;

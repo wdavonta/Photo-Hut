@@ -23,7 +23,7 @@
                 <h1 id="display-name">{{user.username}}</h1>
             {{/if}}
             {{#if myProfile}}
-            <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" value="{{user.display_name}}">
+            <input id="display-name-edit" user_id="{{user.id}}" type="text" class="edit-only form-control display-name p-0" placeholder="Enter your Display Name." value="{{user.display_name}}">
             {{/if}}
             <div class="socials-icons">
                 {{#if user.instagram_url}}
@@ -34,28 +34,28 @@
                 {{#if user.linkedin_url}}
                 <a data-toggle="tooltip" data-placement="top" title="Edit My LinkedIn URL" href="{{user.linkedin_url}}"><i class="socials-icon linkedIn-icon"></i></a>
                 {{else}}
-                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a LinkedIn Account" href="{{user.linkedin_url}}"><i class="socials-icon linkedIn-icon"></i></a>
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a LinkedIn Account" href="{{user.instagram_url}}"><i class="socials-icon linkedIn-icon"></i></a>
                 {{/if}}
                 {{#if user.facebook_url}}
                 <a data-toggle="tooltip" data-placement="top" title="Edit My Facebook URL" href="{{user.facebook_url}}"><i class="socials-icon facebook-icon"></i></a>
                 {{else}}
-                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Facebook Account" href="{{user.facebook_url}}"><i class="socials-icon facebook-icon"></i></a>
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Facebook Account" href="{{user.instagram_url}}"><i class="socials-icon facebook-icon"></i></a>
                 {{/if}}
                 {{#if user.twitter_url}}
                 <a data-toggle="tooltip" data-placement="top" title="Edit My Twitter URL" href="{{user.twitter_url}}"><i class="socials-icon twitter-icon"></i></a>
                 {{else}}
-                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Twitter Account" href="{{user.twitter_url}}"><i class="socials-icon twitter-icon"></i></a>
+                <a class="socials-disabled" data-toggle="tooltip" data-placement="top" title="Link a Twitter Account" href="{{user.instagram_url}}"><i class="socials-icon twitter-icon"></i></a>
                 {{/if}}
             </div>
             {{#if myProfile}}
-            <div class="row">
+            <div class="bio-cont row">
                 <div class="bio-div col-10">
                     {{#if user.bio}}
                         <p class="bio">{{{format_bio user.bio}}}</p>
                     {{else}}
                         <p class="bio">This user has not yet set up their bio.</p>
                     {{/if}}
-                    <textarea placeholder="max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{user.bio}}</textarea>
+                    <textarea placeholder="Enter you bio. Max character limit of 500" rows="4" type="text" id="bio-edit" class="edit-only form-control">{{user.bio}}</textarea>
                 </div>
                 <div class="col-2 prof-icons">
                     <button data-toggle="modal" data-target="#photoUpload" class="btn photoUpload" id="upload-photo"><i id="upload-photo-i" class="fas fa-plus"></i></button>
@@ -109,6 +109,36 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="photo-submit-btn btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Social modal -->
+<div class="modal fade" id="editSocials" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editSocials-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form ml-5 mr-5">
+                    <div class="form-group">
+                        <label for="inputTitle">Enter URL</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-link"></i></div>
+                            </div>
+                            <input type="url" class="form-control" id="editSocials-url" placeholder="https://[YOUR-URL]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="editSocials-submit-btn btn btn-primary">Submit</button>
             </div>
         </div>
     </div>

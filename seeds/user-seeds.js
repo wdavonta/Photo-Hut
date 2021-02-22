@@ -42,7 +42,14 @@ const userdata = [
     {
         username: 'msprague5',
         email: 'larnout5@imdb.com',
-        password: 'password123'
+        password: 'password123',
+        prof_pic: 'https://picsum.photos/600',
+        display_name: 'Max Sprague',
+        bio: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quam accusamus. Saepe aspernatur excepturi in! Reprehenderit repudiandae rerum dolore laboriosam quisquam voluptatibus porro atque, quae inventore tempora, facilis laborum qui!',
+        instagram_url: 'https://www.instagram.com/orlandocitysc/?hl=en',
+        linkedin_url: 'https://www.linkedin.com/in/ericstanulis/',
+        facebook_url: 'https://www.facebook.com',
+        twitter_url: 'https://twitter.com/OrlandoLionsDen'
     },
     {
         username: 'mpergens6',
