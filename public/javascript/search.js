@@ -8,7 +8,7 @@ var usernames = [];
 
 // fetch list of users to add to suggestion (CALLS SUGGEST user)
 async function fetchUsers() {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/', {
         method: 'get',
         headers: { 'Content-Type': 'application/json' }
     });
